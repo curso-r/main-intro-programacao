@@ -1,0 +1,111 @@
+---
+output: github_document
+---
+
+# Introdução à programação em R
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Repositório principal do curso de introdução à programação em R.
+
+Inscreva-se no curso: https://www.curso-r.com/cursos/intro-programacao/
+
+**Acesse o material completo do curso escolhendo uma das turmas abaixo**.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+knitr::kable(CursoR:::listar_turmas_recentes("intro-programacao"))
+```
+
+# Esqueleto do curso
+
+Aula 01: Introdução
+
+- Apresentação do curso
+- Por que programar?
+- Ciclo da ciência de dados (todas as etapas do ciclo estão disponíveis em R)
+- Ambientação: R e Rstudio
+  - criando um projeto
+- Diferença entre script e console
+- Operações aritméticas 
+- Criação de variáveis e o enviroment (seção do Rstudio)
+  - Tipos: texto e número
+- Vetores
+  - Tipos texto e número
+- Subset de vetor
+- Funções
+  - Vocabulário: função `mean`
+  - Funções para leitura de arquivos
+- Primeiro exemplo de script:
+  - Comentários
+  - Como salvar objetos para fora do R
+  - Lê 10 arquivos com vetores números e salva a média dos últimos meses  
+
+Aula 02: 
+
+- Operador if: scripts com condições
+  - Operadores lógicos
+- Exemplo: upgrade do script anterior descartando alguns arquivos que não interessam
+- Importação de arquivos para o R
+  - data_frames
+  - bind_rows e bind_cols
+  - como salvar data_frames para fora do R
+- Novos tipos de variáveis:
+  - datas e fatores
+- loops de repetição
+  - for
+- Exemplo: empilhando vários arquivos com for
+- Exemplo: empilhando vários arquivos em que as colunas precisam ser compatibilizadas
+- Exemplo: script que pega um data_frame e constrói um vetor com médias de grupos e escreve um data_frame com o resultado no final
+  - Tipos especiais de valores: NA, NaN e Inf
+- subset de data_frames com vetores lógicos,
+- Exemplo: script que joga fora linhas indesejadas segundo uma regra
+
+Aula 03: 
+
+- Exemplo: script que abre um arquivo e cria várias colunas com diversos cálculos
+  - média do grupo, desvio da observação com relação à média do grupo
+  - vocabulário: std, mean
+- Exemplo: complementando o script pra verificar erros
+  - vocabulário: is.na, is.nan, is.infinite
+- mais loops de repetição: while
+- construindo funções em R
+  - argumentos
+- simplificando scripts usando funções
+- a função source 
+  
+Aula 04: 
+
+- instalando pacotes
+- CRAN e github
+- o pacote `fs`
+- copiando e renomeando arquivos
+- Exemplo: script que arruma os nomes dos arquivos de uma pasta
+    - vocabulario: tolower, toupper
+- Exemplo: script que organiza vários arquivos em pastas importantes
+
+Aula 05: 
+
+- Começando um projeto do 0:
+- Como estruturar seu projeto
+  - Zen do R: possibilidades de organização
+- criando um script do 0:
+  - criando um script para arrumar os dados
+  - organizando as funções
+  - salvando várias tabelas resumo
+
+**Trabalho de conclusão**: Estruturar um projeto do Rstudio de acordo com as orientações do curso que faça o seguinte: carrega vários arquivos em uma única base de dados, gere várias estatísticas sobre os dados e salve os resultados das suas análises em uma terceira pasta, seguindo um padrão de organização
+
+**Opções de bases de dados para exemplos e exercícios**:
+
+- dados::voos
+    - Base principal
+- dados::aeroportos
+- 
+- 
