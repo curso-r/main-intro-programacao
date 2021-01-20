@@ -17,12 +17,6 @@ Repositório principal do curso de introdução à programação em R.
 
 Inscreva-se no curso: https://www.curso-r.com/cursos/intro-programacao/
 
-**Acesse o material completo do curso escolhendo uma das turmas abaixo**.
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
-knitr::kable(CursoR:::listar_turmas_recentes("intro-programacao"))
-```
-
 # Esqueleto do curso
 
 Aula 01: Introdução

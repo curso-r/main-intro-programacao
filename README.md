@@ -1,67 +1,110 @@
 
-# Relatórios e visualização de dados
+# Introdução à programação em R
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-Repositório principal do curso Relatórios e visualização de dados.
+Repositório principal do curso de introdução à programação em R.
 
-Inscreva-se no curso: <https://www.curso-r.com/cursos/visualizacao>
-
-**Acesse o material completo do curso escolhendo uma das turmas
-abaixo**.
-
-| Turma         | Material                                        | Github                                           |
-|:--------------|:------------------------------------------------|:-------------------------------------------------|
-| março de 2021 | <https://curso-r.github.io/202103-visualizacao> | <https://github.com/curso-r/202103-visualizacao> |
+Inscreva-se no curso:
+<https://www.curso-r.com/cursos/intro-programacao/>
 
 # Esqueleto do curso
 
-Aula 01: RMarkdown básico
+Aula 01: Introdução
 
--   Ciclo da ciência de dados (mostrar que estamos em visualização +
-    comunicação)
--   Referências de rmarkdown (site, cheatsheet, livro yihui, vídeos)
--   Showcase
--   Sintaxe Markdown
--   Chunks
--   YAML
--   Principais saídas
-    -   relatório (word, html, pdf, pagedown)
-    -   apresentação (ppt, ioslides, beamer)
-    -   flexdashboard
+  - Apresentação do curso
+  - Por que programar?
+  - Ciclo da ciência de dados (todas as etapas do ciclo estão
+    disponíveis em R)
+  - Ambientação: R e Rstudio
+      - criando um projeto
+  - Diferença entre script e console
+  - Operações aritméticas
+  - Criação de variáveis e o enviroment (seção do Rstudio)
+      - Tipos: texto e número
+  - Vetores
+      - Tipos texto e número
+  - Subset de vetor
+  - Funções
+      - Vocabulário: função `mean`
+      - Funções para leitura de arquivos
+  - Primeiro exemplo de script:
+      - Comentários
+      - Como salvar objetos para fora do R
+      - Lê 10 arquivos com vetores números e salva a média dos últimos
+        meses
 
-Aula 02: Visualização
+Aula 02:
 
--   Revisão ggplot2
-    -   ggplot()
-    -   aes()
-    -   alguns geom\_\*()
-    -   theme()
--   Mapas em ggplot2
--   Customizando temas
--   Tabelas: `{gt}` e `{gtsummary}`
+  - Operador if: scripts com condições
+      - Operadores lógicos
+  - Exemplo: upgrade do script anterior descartando alguns arquivos que
+    não interessam
+  - Importação de arquivos para o R
+      - data\_frames
+      - bind\_rows e bind\_cols
+      - como salvar data\_frames para fora do R
+  - Novos tipos de variáveis:
+      - datas e fatores
+  - loops de repetição
+      - for
+  - Exemplo: empilhando vários arquivos com for
+  - Exemplo: empilhando vários arquivos em que as colunas precisam ser
+    compatibilizadas
+  - Exemplo: script que pega um data\_frame e constrói um vetor com
+    médias de grupos e escreve um data\_frame com o resultado no final
+      - Tipos especiais de valores: NA, NaN e Inf
+  - subset de data\_frames com vetores lógicos,
+  - Exemplo: script que joga fora linhas indesejadas segundo uma regra
 
-Aula 03: RMarkdown avançado
+Aula 03:
 
--   `{xaringan}` e `{xaringanExtra}`
--   Editando CSS
--   Hacks e dicas práticas para relatórios Word, PDF e HTML
--   `{bookdown}`
--   `{htmlWidgets}`
+  - Exemplo: script que abre um arquivo e cria várias colunas com
+    diversos cálculos
+      - média do grupo, desvio da observação com relação à média do
+        grupo
+      - vocabulário: std, mean
+  - Exemplo: complementando o script pra verificar erros
+      - vocabulário: is.na, is.nan, is.infinite
+  - mais loops de repetição: while
+  - construindo funções em R
+      - argumentos
+  - simplificando scripts usando funções
+  - a função source
 
-Aula 04: Miscelânea
+Aula 04:
 
--   Templates legais da comunidade
--   Gráficos animados com `{gganimate}`
--   Grudando gráficos com `{patchwork}`
--   distill e blogdown
--   Netlify
+  - instalando pacotes
+  - CRAN e github
+  - o pacote `fs`
+  - copiando e renomeando arquivos
+  - Exemplo: script que arruma os nomes dos arquivos de uma pasta
+      - vocabulario: tolower, toupper
+  - Exemplo: script que organiza vários arquivos em pastas importantes
 
-**Trabalho de conclusão**: fazer o \#tidytuesday da semana ou um à sua
-escolha. Fazer não só a visualização, mas uma apresentação ou relatório
+Aula 05:
+
+  - Começando um projeto do 0:
+  - Como estruturar seu projeto
+      - Zen do R: possibilidades de organização
+  - criando um script do 0:
+      - criando um script para arrumar os dados
+      - organizando as funções
+      - salvando várias tabelas resumo
+
+**Trabalho de conclusão**: Estruturar um projeto do Rstudio de acordo
+com as orientações do curso que faça o seguinte: carrega vários arquivos
+em uma única base de dados, gere várias estatísticas sobre os dados e
+salve os resultados das suas análises em uma terceira pasta, seguindo um
+padrão de organização
 
 **Opções de bases de dados para exemplos e exercícios**:
 
--   Covid (é meio triste, mas tem tudo que precisamos)
--   Dados de vacinação (deve ter alguma já)
--   `{dados}` para exemplos mais simples
+  - dados::voos
+    
+      - Base principal
+
+  - dados::aeroportos
+
+  - 
+  -
