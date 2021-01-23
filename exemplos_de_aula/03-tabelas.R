@@ -23,3 +23,5 @@ library("readr")
 # é bem fácil. Você usa a função read_csv2
 
 base_de_dados <- read_csv2("dados/voos_de_janeiro.csv")
+
+

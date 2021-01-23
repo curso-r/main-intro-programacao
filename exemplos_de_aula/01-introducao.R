@@ -75,16 +75,6 @@ E_algumasPoucas.Pessoas_RENUNCIAMconvenções
 
 # 1. Multiplique a sua idade por 12 e salve em um objeto chamado "meses".
 
-
-
-# Classes -----------------------------------------------------------------
-
-# Podemos somar dois números
-1 + 2
-
-# Não podemos somar duas letras (texto)
-"a"+"b"
-
 ##############################
 # Use aspas para criar texto #
 ##############################
@@ -246,7 +236,7 @@ mean(vetor_exemplos)
 
 # Exemplo 2 median - Como calcular uma mediana
 
-meadian(vetor_exemplos)
+median(vetor_exemplos)
 
 # Exemplo 3 var - Como calcular uma variância 
 

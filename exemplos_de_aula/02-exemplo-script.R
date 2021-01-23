@@ -31,3 +31,7 @@ mensagem_que_vou_imprimir <- paste0("A média dos dados é ", media, ", já o de
 
 paste0(mensagem_que_vou_imprimir)
 # olhe o console para ver esses resultados
+
+# Exercício
+
+# Deixe a saída do script mais bonita arredondando os resultados que tem várias casas decimais.
