@@ -62,13 +62,13 @@ Aula 02:
 - atualizacao do script anterior: lendo os dados de um arquivo ao invés de digitando e colocando os resultados numa tabela e salvando
 
 40min: 
-- Operador if: scripts com condições
   - Operadores lógicos/relacionais
+- Operador if: scripts com condições
 - Exemplo: fazer o texto final mudar de acordo com o valor das estatísticas. ideia: definir que tem uma meta a ser 
 batida e o texto vai mudar em função disso
 - Mais informações sobre tabelas
   - pegar tabelas de 2 meses e importar pra dentro do R
-  - bind_rows e bind_cols
+  - rbind, cbind
   - Tipos especiais de valores: NA, NaN e Inf
 - Exemplos: o que acontence quando tem dados que dão problema num data_frame (ex: NA numa coluna ou divisão por 0 numa conta)
   - vocabulário: is.na, is.nan, is.infinite
