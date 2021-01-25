@@ -54,7 +54,9 @@ recipiente(rep("farinha", 2), "água", "fermento", "leite", "óleo") %>%
 
 # Exercício ---------------------------------------------------------------
 
-# 1. Reescreva o código abaixo utilizando o pipe. É mais fácil de ler?
+# 1. Reescreva o código abaixo utilizando o pipe. Na sua opinião, 
+# de que forma é mais facil de ler e entender o que está sendo executado?
+# Com ou sem o pipe? 
 
 round(mean(base_de_dados$atraso_chegada, na.rm = TRUE), 2)
 
