@@ -83,7 +83,63 @@ arquivos <- list.files("dados", pattern = ".csv", full.names = TRUE)
 
 
 # Exemplo:
+# install.packages("purrr") # instale caso seja necessário!
 library(purrr)
 base_unida <- map_df(arquivos, read_csv2)
 
-# ESCREVER EXERCÍCIOS
+# Pacote fs ----------------
+
+# O pacote fs tem como foco lidar com arquivos! A seguir mostraremos alguns 
+# exemplos de uso onde este pacote foi útil.
+
+ 
+# install.packages("fs") # instale caso seja necessário!
+library(fs) # carregue o pacote para usar
+
+# Exemplo 1: Quero criar uma pasta no meu projeto diretamente do R!
+# obs: caso a pasta já exista, nada acontecerá.
+
+fs::dir_create("exemplo_dir_create")
+
+
+# Exemplo 2: Quero criar um arquivo diretamente do R!
+# obs: caso a arquivo já exista, nada acontecerá.
+
+fs::file_create("exemplo_file_create.R")
+
+# Exemplo 3: Ver a estrutura do projeto no console: quais arquivos estão presentes?
+# como estão organizados nas pastas?
+
+fs::dir_tree()
+
+# Exemplo 4: É possível copiar todos os arquivos de uma pasta para outra usando
+# a função dir_copy(). O primeiro argumento é o caminho para  pasta a ser copiada,
+# e o segundo argumento é o caminho para a nova pasta 
+# (caso ela não exista, ela será criada).
+
+fs::dir_copy("dados", "dados2")
+
+# Exemplo 5: arruma os nomes dos arquivos de uma pasta
+
+# Primeiro vamos criar uma pasta para fazer isso
+fs::dir_create("pasta_com_arquivos_baguncados")
+
+# Vamos criar dois arquivos como exemplo, com nomes escritos em caixa alta
+fs::file_create("pasta_com_arquivos_baguncados/UM_ARQUIVO_COM_CAPS_LOCK.R")
+
+fs::file_create("pasta_com_arquivos_baguncados/OUTRO_ARQUIVO_COM_CAPS_LOCK.R")
+
+# Agora vamos criar vetores: com os nomes originais, e com os novos nomes
+nomes_originais <- list.files("pasta_com_arquivos_baguncados/", full.names = TRUE) 
+
+novos_nomes <- tolower(nomes_originais)  
+# a função tolower() é usada para transformar letras maiúsculas em minúsculas
+
+# usaremos a função file_move() para mover os arquivos com os caminhos originais, 
+# para os caminhos com nomes corrigidos. 
+fs::file_move(nomes_originais, novos_nomes)
+
+# Exemplo 5: podemos também deletar os arquivos diretamente do R, usando a função
+# file_delete()
+
+fs::file_delete("pasta_com_arquivos_baguncados")
