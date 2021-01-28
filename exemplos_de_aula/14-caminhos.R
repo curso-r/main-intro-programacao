@@ -82,10 +82,6 @@ arquivos <- list.files("dados", pattern = ".csv", full.names = TRUE)
 # (com a mesma estrutura) em uma única base no R com poucas linhas de código.
 
 
-# Exemplo:
-# install.packages("purrr") # instale caso seja necessário!
-library(purrr)
-base_unida <- map_df(arquivos, read_csv2)
 
 # Pacote fs ----------------
 
