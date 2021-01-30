@@ -118,6 +118,18 @@ class: middle, center
 # Sobre o curso
 
 ---
+## Orientações
+
+- Dinâmica das aulas:
+    - Slides e código, muito código!
+    - Exercícios curtos salpicados ao longo das aulas. Vamos resolver juntos em intervalos de aproximadamente 5 minutos, com correção logo na sequência
+    - Todos os códigos executados em aula serão disponibilizados https://github.com/curso-r/202102-intro-programacao
+    - Intervalos de 20 min iniciados por volta às 20h e 20h20
+- Após as aulas:
+    - Exercícios para casa disponibilizados na aba "Atividades" do Google Classroom. A entrega não é obrigatória, mas corrigiremos e daremos feedback sobre todas as entregas feitas na plataforma.
+    - A emissão de certificados ocorrerá mediante a entrega da atividade final do curso, que será apresentada na última aula do curso.
+
+---
 ## Introdução ao R
 
 .pull-left[
