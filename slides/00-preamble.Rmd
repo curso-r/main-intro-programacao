@@ -18,4 +18,5 @@ options(width = 85)
 
 ```{r xaringanExtra-clipboard, echo=FALSE}
 xaringanExtra::use_clipboard()
+xaringanExtra::use_tile_view()
 ```
