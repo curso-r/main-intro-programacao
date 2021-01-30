@@ -268,7 +268,7 @@ length(vetor_exemplos)
 
 # Funções para mexer com textos
 
-# Exemplo 8 - Função paste
+# Exemplo 9 - Função paste
 
 paste("a", "b") # cola os elementos, separando com um espaço
 
