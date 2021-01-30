@@ -1,10 +1,13 @@
-# Esse será o nosso primeiro exemplo de script
+# Esse será o nosso segundo exemplo de script
 
-# Ele é uma sequência de passos que começa com a criação de um vetor de dados e depois
+# Ele é similar ao anterior, mas começa com a leitura de uma tabela externa e no final a saída do script se dá
+# em função das estatísticas calculadas.
 
-# 1. Calcula uma série de estatísticas desse vetor
-# 2. Imprime essas estatísticas em texto para que você possa colar isso em outro lugar
-# como um relatório, uma apresentação ou outro tipo de documento.
+# No geral, o script é similar aos anteriores:
+
+# 1. Calcula uma série de estatísticas de uma coluna da base
+# 2. Verifica se as estatísticas estão de acordo com uma determinada meta pré-definida
+# 3. Imprime uma mensagem personalizada de acordo com o resultado dos cálculos
 
 
 # Carregando pacotes ------------------------------------------------------

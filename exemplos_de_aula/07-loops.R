@@ -235,7 +235,10 @@ for(arquivo in arquivos_de_dados){
 
 
 
-# 1. ele imprime varias informações que poluem a tela
+# 1. ele imprime varias informações que poluem a tela, mas isso naõ é um erro!
+
+# para cada arquivo, o código de leitura devolve os tipos das colunas lidas
+# Isso é bom para sabermos como que fica!
 
 # 2. o máximo está dando NAs
 
@@ -244,10 +247,7 @@ arquivos <- c("dados/voos_de_janeiro.csv", "dados/voos_de_fevereiro.csv", "dados
 
 for(arquivo in arquivos){
   
-  dados <- readr::read_csv2(arquivo,
-                            col_types = "dddddddddcdcccddddT",
-                            col_names = TRUE,
-                            locale = locale(decimal_mark = ",", grouping_mark = "."))
+  dados <- readr::read_csv2(arquivo)
   
   maior_atraso <- max(dados$atraso_saida, na.rm = TRUE)
   

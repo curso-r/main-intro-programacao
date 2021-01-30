@@ -1,8 +1,10 @@
-# Esse será o nosso primeiro exemplo de script
+# Esse será o nosso segundo exemplo de script
 
-# Ele é uma sequência de passos que começa com a criação de um vetor de dados e depois
+# Ele é similar ao anterior, mas começa com a leitura de uma tabela externa 
 
-# 1. Calcula uma série de estatísticas desse vetor
+# Depois, o script é similar ao anterior:
+
+# 1. Calcula uma série de estatísticas de uma coluna da base
 # 2. Imprime essas estatísticas em texto para que você possa colar isso em outro lugar
 # como um relatório, uma apresentação ou outro tipo de documento.
 
@@ -14,7 +16,6 @@ library(readr)
 # Carregando os dados -----------------------------------------------------
 
 base_de_dados <- read_csv2("dados/voos_de_janeiro.csv")
-
 
 # Calculando estatísticas -------------------------------------------------
 
