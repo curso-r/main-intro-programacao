@@ -245,7 +245,7 @@ class: middle, center
 
 2. Todos podem usar as melhores ferramentas independentemente do poder financeiro.
 
-3. Estudantes podem usar as mesmas ferramentas que os profissionais.
+3. Estudantes podem usar as mesmas ferramentas que profissionais.
 
 4. Você pode corrigir problemas e aprimorar a linguagem.
 
