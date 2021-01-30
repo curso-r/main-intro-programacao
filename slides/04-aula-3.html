@@ -11,6 +11,8 @@
     <link href="libs/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/tile-view-0.2.4/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.4/tile-view.js"></script>
     <link rel="stylesheet" href="css/custom-intro.css" type="text/css" />
   </head>
   <body>
@@ -18,7 +20,7 @@
 class: center, middle, inverse, title-slide
 
 # Introdução à programação com R
-## Introdução à Importação de dados
+## Material complementar da Aula 3
 ### <img src = 'https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5c21538a29eade7cbd2b/67e5c/img/logo/cursor1-5.png' width = '20%'>
 
 ---
@@ -32,124 +34,57 @@ class: center, middle, inverse, title-slide
 
 
 
+
+# Tópicos desta aula
+
+- [Controle de fluxo: if](#if)
+
+- [Loops de repetição: for](#for)
+
+- [Loops de repetição: while](#while)
+
+
+---
+name: if
 class: middle, center
 
-# <span style="color:#6495ed; font-weight: bold;">Importação</span>
-
----
-# O que é?
-
-Importar uma base de dados para o R significa levar a informação contida no disco rígido (HD) para a mé moria RAM.
-
-&lt;img src="img/import.png" width="1284" /&gt;
-
----
-# Caminhos
-
-Um passo importante na tarefa de importação de dados para o R é saber onde está o arquivo que queremos importar.
-
-Toda função de importação vai exigir um **caminho**, uma string que representa o endereço do arquivo no computador.
-
-Há duas formas de passarmos o caminho de arquivo: usar o **caminho absoluto** ou usar o **caminho relativo**.
-
-Antes de falarmos sobre a diferença dos dois, precisamos definir o que é o **diretório de trabalho**.
-
----
-## Diretório de trabalho
-
-O diretório de trabalho (*working directory*) é a pasta em que o R vai procurar arquivos na hora de ler informações ou gravar arquivos na hora de salvar objetos.
-
-Se você está usando um projeto, o diretório de trabalho da sua sessão será, por padrão, a pasta raiz do seu projeto (é a pasta que contém o arquivo com extensão `.Rproj`).
-
-Se você não estiver usando um projeto ou não souber qual é o seu diretório de trabalho, você pode descobri-lo usando a seguinte função `getwd()`.
-
-Ela vai devolver uma string com o caminho do seu diretório de trabalho.
-
-A função `setwd()` pode ser utilizada para mudar o diretório de trabalho. Como argumento, ela recebe o caminho para o novo diretório.
-
----
-## Caminhos absolutos
-
-Caminhos absolutos são aqueles que tem início na pasta raiz do seu computador/usuário. Por exemplo:
-
-`/Users/beatrizmilz/Documents/Curso-R/main-intro-programacao/slides`
-
-Esse é o caminho absoluto para a pasta onde esses slides foram produzidos.
-
-Na grande maioria dos casos, caminhos absolutos são uma **má prática**, pois deixam o código irreprodutível. Se você trocar de computador ou passar o script para outra pessoa rodar, o código não vai funcionar, pois o caminho absoluto para o arquivo muito provavelmente será diferente.
-
----
-## Caminhos relativos
-
-Caminhos relativos são aqueles que tem início no diretório de trabalho da sua sessão.
-
-O diretório de trabalho da sessão utilizada para produzir esses slides é a pasta `intro-programacao-em-r-mestre`. Veja o caminho absoluto no slide anterior. Então, o caminho relativo para a pasta onde esses slides foram produzidos seria apenas `slides/`.
-
-**Trabalhar com projetos no RStudio ajuda bastante o uso de caminhos relativos**, pois nos incentiva a colocar todos os arquivos da análise dentro da pasta do projeto.
-
-Assim, se você usar apenas caminhos relativos e compartilhar a pasta do projeto com alguém, todos os caminhos existentes nos códigos continuarão a funcionar em qualquer computador!
-
----
-# Lendo tabelas
-
-Para ler tabelas, como arquivos `.csv`, utilizaremos funções do pacote `readr`.
-
-Para isso, utilizamos a função `read_csv()` ou `read_csv2()`. Se o arquivo estiver bem formatado, a função só precisa do caminho até o arquivo para funcionar.
+# <span style="color:#6495ed; font-weight: bold;">Controle de fluxo: if</span>
 
 
 ---
-&lt;br&gt;&lt;br&gt;
+## Controle de fluxo: if
 
-A mensagem devolvida pela função indica qual classe foi atribuída para cada coluna da base.
+...
 
-.tiny[
+&lt;!-- Escrever! --&gt;
 
-```
-## ℹ Using ',' as decimal and '.' as grouping mark. Use `read_delim()` for more control.
-```
+---
+name: for
+class: middle, center
 
-```
-## 
-## ── Column specification ─────────────────────────────────────────────────────────────
-## cols(
-##   ano = col_double(),
-##   mes = col_double(),
-##   dia = col_double(),
-##   horario_saida = col_double(),
-##   saida_programada = col_double(),
-##   atraso_saida = col_double(),
-##   horario_chegada = col_double(),
-##   chegada_prevista = col_double(),
-##   atraso_chegada = col_double(),
-##   companhia_aerea = col_character(),
-##   voo = col_double(),
-##   cauda = col_character(),
-##   origem = col_character(),
-##   destino = col_character(),
-##   tempo_voo = col_double(),
-##   distancia = col_double(),
-##   hora = col_double(),
-##   minuto = col_double(),
-##   data_hora = col_datetime(format = "")
-## )
-```
-]
+# <span style="color:#6495ed; font-weight: bold;">Loops de repetição: for</span>
 
 
 ---
-&lt;br&gt;&lt;br&gt;
+## Loops de repetição: for
 
-- Em alguns países, como o Brasil, as vírgulas são utilizadas para separar as casas decimais dos números, inviabilizando os arquivos `.csv`.  Nesses casos, os arquivos `.csv` são na verdade separados por ponto-e-vírgula. Para ler bases separadas por ponto-e-vírgula no R, utilize a função `read_csv2()`.
+...
+
+&lt;!-- Escrever! --&gt;
+
+---
+name: while
+class: middle, center
+
+# <span style="color:#6495ed; font-weight: bold;">Loops de repetição: while</span>
 
 
-```r
-voos_csv &lt;- readr::read_csv2("../dados/voos_de_janeiro.csv")
-```
+---
+## Loops de repetição: while
 
-- Arquivos `.txt` podem ser lidos com a função `read_delim()`. Além do caminho até o arquivo, você também precisa indicar qual é o caractere utilizado para separar as colunas da base.  Um arquivo separado por tabulação, por exemplo, pode ser lido utilizando a o código abaixo. O código `\t` é uma forma textual de representar a tecla TAB.
+...
 
-
-- Para ler planilhas do Excel (arquivos `.xlsx` ou `.xls`), basta utilizarmos a função `read_excel()` do pacote `readxl`. 
+&lt;!-- Escrever! --&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
