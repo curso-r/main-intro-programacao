@@ -2,7 +2,9 @@
 
 # Rodando códigos (o R como calculadora) ----------------------------------
 
-# ATALHO para rodar o código: CTRL + ENTER
+# ATALHO para rodar o código: CTRL + ENTER  
+# Mesmo atalho no Mac: Command + ENTER
+
 
 # adição
 1 + 1
@@ -30,6 +32,7 @@ soma <- 2 + 2
 soma
 
 # ATALHO para a <- : ALT - (alt menos)
+# Mesmo atalho no Mac: Option - (Option menos)
 
 # O R difencia minúscula de maiúscula!
 
@@ -169,6 +172,7 @@ vetor * 10
 # Você também pode fazer operações que envolvem mais de um vetor:
 
 vetor1 <- c(1, 2, 3)
+
 vetor2 <- c(10, 20, 30)
 
 vetor1  + vetor2
@@ -258,11 +262,17 @@ min(vetor_exemplos)
 
 round(vetor_exemplos)
 
+# Exemplo 8 - Descobrir o tamanho do vetor: quantos elementos ele tem?
+
+length(vetor_exemplos)
+
 # Funções para mexer com textos
 
 # Exemplo 8 - Função paste
 
-paste0("a", "b")
+paste("a", "b") # cola os elementos, separando com um espaço
+
+paste0("a", "b") # cola os elementos sem separar!
 paste0("b", "a")
 
 resultado_colado <- paste0(1, "a")
