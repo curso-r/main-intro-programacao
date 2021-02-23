@@ -1,3 +1,4 @@
+# [IMPORTANTE]: Você precisa instalar o pacote "beepr" antes de fazer esse exercício! Isso é, você precisa executar o comando install.packages('beepr') no seu console.
 # 1. Quando programamos o despertador do nosso
 # celular para acordar de manhã, estamos, 
 # internamente, programando um laço (for) para 

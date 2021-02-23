@@ -45,7 +45,7 @@ x %in% c(1, 2, 3)
 # Comparações lógicas serão a base dos filtros!
 
 avaliacao_do_cliente <- c(1, 3, 0, 10, 2, 5, 20)
-estado_de_nascimento <- c("SP", "PB", "PB", "RJ", "MT", "MT")
+estado_de_nascimento <- c("SP", "PB", "PB", "RJ", "MT", "MT", "PA")
 
 avaliacao_do_cliente > 3
 estado_de_nascimento %in% c("SP", "MT")
