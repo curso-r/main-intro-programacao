@@ -139,5 +139,38 @@ Aula 05:
 - dados::voos
     - Base principal
 - dados::aeroportos
-- 
-- 
+ 
+## Oferecimento em fev/2021
+
+- Aula 1: introdução ao curso, ambientação ao RStudio, criando um projeto e baixando o material do curso.
+
+- Aula 2: script 01-introducao.R até funções
+
+- Aula 3: 
+  - final do script 01-introducao.R
+  - 02-exemplo-script.R
+  - 03-tabelas.R
+  - 04-exemplo-script.R
+  
+- Aula 4: (previsto)
+  - 05-operadores_controle-de-fluxo_NA.R
+  - 06-exemplo-script.R
+  - 07-loops.R (começar)
+  
+
+- Aula 5: (previsto)
+  - 07-loops.R (finalizar)
+  - 08-exemplo-script.R
+  - 09-loops-2.R 
+  - 10-exemplo-script.R
+  
+- Aula 6:  (previsto)
+  - 11-funcoes.R
+  - 12-exemplo-script-funcao.R
+  - 13-pipe.R
+  - 14-instalar-pacotes.R
+  - 15-caminhos.R
+
+
+
+

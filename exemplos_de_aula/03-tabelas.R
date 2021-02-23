@@ -112,10 +112,92 @@ str(base_de_dados)
 
 # b) Qual é a dimensão do data.frame base_de_dados_fev? E o que significa?
 
+# Operadores de seleção de data.frames -------
 
-# c) Considerando os meses de Janeiro e Fevereiro, em qual mês a distância
+## Selecionando elementos em um data.frame com o $ -------
+
+# Usa o nome da coluna, e a retorna como um vetor!
+
+base_de_dados$origem
+
+base_de_dados$companhia_aerea
+
+# Dica: use o tab do teclado para usar a funcionalidade de autocompletar.
+
+## Selecionando elementos em um data.frame com o [ ] -------
+
+# Outra forma de selecionar elementos é utilizando 
+# os colchetes, Exemplos: 
+
+# Selecionando a coluna pelo nome:
+base_de_dados[["origem"]]
+base_de_dados[["companhia_aerea"]]
+
+# Selecionando a coluna pela posição (indexação):
+base_de_dados[[13]]
+base_de_dados[[10]]
+
+
+# A classe data frame tem uma característica especial: dimensão
+
+dim(base_de_dados)
+
+# vetores não tem dimensão!
+vetor <- c(1, 2)
+dim(vetor) 
+
+# Subsetting em objetos com 2 dimensões
+
+# Sinxtaxe: data_frame[indice_linha, indice_coluna]
+
+# Seleciona a linha 1 e a coluna 2
+base_de_dados[1, 2] 
+
+# Seleciona a linha 1 e TODAS as colunas
+base_de_dados[1, ] 
+
+# Seleciona TODAS as linhas e apenas a coluna 2
+base_de_dados[ , 2] 
+
+
+# Selecionando colunas
+
+base_de_dados[, c(13, 10)]
+base_de_dados[, c("origem", "companhia_aerea")]
+
+
+
+# Exercício ---
+
+# a) Considerando os meses de Janeiro e Fevereiro, em qual mês a distância
 # total voada foi maior?
 
+
+
+
+# Dataframes e funções ------------
+
+# Qual é a soma ....?
+sum(base_de_dados$distancia)
+
+# Menor valor encontrado: o menor número encontrado na coluna
+min(base_de_dados$distancia)
+
+# Maior valor encontrado: o maior número encontrado na coluna
+max(base_de_dados$distancia)
+
+
+# Média 
+mean(base_de_dados$distancia)
+
+# Mediana 
+median(base_de_dados$distancia)
+
+# Variância
+var(base_de_dados$distancia)
+
+# Desvio padrão
+sd(base_de_dados$distancia)
 
 
 # Datas no R ------------
@@ -175,9 +257,23 @@ as.numeric(hoje) # segundos desde o dia 01 de janeiro de 1970
 
 # Como criar um data.frame? -------------------
 
-# A função data.frame() é uma forma de criar um data.frame:
+# A função data.frame() é uma forma de criar um data.frame.
 
-amostra_avioes <- data.frame(
+
+# Uma forma de criar é juntando vetores com a função data.frame():
+
+codigo_cauda <- c("N10156", "N102UW", "N103US")
+ano <- c(2004, 1998, 1999)
+motores <- c(2, 2, 2)
+assentos <- c(55, 182, 182)
+
+amostra_avioes <- data.frame(codigo_cauda, ano, motores, assentos)
+
+
+
+
+# Outra forma de criar é diretamente com a função data.frame():
+amostra_avioes2 <- data.frame(
            codigo_cauda = c("N10156", "N102UW", "N103US"),
            ano = c(2004, 1998, 1999),
            motores = c(2, 2, 2), 
@@ -188,90 +284,8 @@ amostra_avioes <- data.frame(
 # dados::avioes[1:3, c(1, 2, 6, 7)]
 
 
-# Outra forma de criar, é juntando vetores com a função data.frame():
-
-codigo_cauda <- c("N10156", "N102UW", "N103US")
-ano <- c(2004, 1998, 1999)
-motores <- c(2, 2, 2)
-assentos <- c(55, 182, 182)
-
-amostra_avioes2 <- data.frame(codigo_cauda, ano, motores, assentos)
 
 
-# Operadores de seleção de data.frames -------
-
-## Selecionando elementos em um data.frame com o $ -------
-
-# Usa o nome da coluna, e a retorna como um vetor!
-
-base_de_dados$origem
-
-base_de_dados$companhia_aerea
-
-# Dica: use o tab do teclado para usar a funcionalidade de autocompletar.
-
-## Selecionando elementos em um data.frame com o [ ] -------
-
-# Outra forma de selecionar elementos é utilizando 
-# os colchetes, Exemplos: 
-
-# Selecionando a coluna pelo nome:
-base_de_dados[["origem"]]
-base_de_dados[["companhia_aerea"]]
-
-# Selecionando a coluna pela posição (indexação):
-base_de_dados[[13]]
-base_de_dados[[10]]
 
 
-# A classe data frame tem uma característica especial: dimensão
 
-dim(base_de_dados)
-
-# vetores não tem dimensão!
-vetor <- c(1, 2)
-dim(vetor) 
-
-# Subsetting em objetos com 2 dimensões
-
-# Sinxtaxe: data_frame[indice_linha, indice_coluna]
-
-# Seleciona a linha 1 e a coluna 2
-base_de_dados[1, 2] 
-
-# Seleciona a linha 1 e TODAS as colunas
-base_de_dados[1, ] 
-
-# Seleciona TODAS as linhas e apenas a coluna 2
-base_de_dados[ , 2] 
-
-
-# Selecionando colunas
-
-base_de_dados[, c(13, 10)]
-base_de_dados[, c("origem", "companhia_aerea")]
-
-
-# Dataframes e funções ------------
-
-# Qual é a soma ....?
-sum(base_de_dados$distancia)
-
-# Menor valor encontrado: o menor número encontrado na coluna
-min(base_de_dados$distancia)
-
-# Maior valor encontrado: o maior número encontrado na coluna
-max(base_de_dados$distancia)
-
-
-# Média 
-mean(base_de_dados$distancia)
-
-# Mediana 
-median(base_de_dados$distancia)
-
-# Variância
-var(base_de_dados$distancia)
-
-# Desvio padrão
-sd(base_de_dados$distancia)
