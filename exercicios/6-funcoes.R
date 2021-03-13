@@ -1,3 +1,4 @@
+# Escreva a resposta logo abaixo da pergunta.
 # Funções proprias ---------------------------------------------------------
 
 # 1. Crie uma função que receba um número e retorne o quadrado deste

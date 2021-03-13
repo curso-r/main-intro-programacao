@@ -1,3 +1,4 @@
+# Escreva a resposta logo abaixo da pergunta.
 # tabelas -------------------------------------------------------------
 
 # 1. Use o data.frame airquality para responder às questões abaixo:

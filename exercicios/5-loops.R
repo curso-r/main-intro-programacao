@@ -1,3 +1,5 @@
+# Escreva a resposta logo abaixo da pergunta.
+
 # 1. Quando programamos o despertador do nosso
 # celular para acordar de manhã, estamos, 
 # internamente, programando um laço (for) para 

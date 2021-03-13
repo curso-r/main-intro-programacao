@@ -1,3 +1,4 @@
+# Escreva a resposta logo abaixo da pergunta.
 # Filtro e vetores logicos ------------------------------------------------
 
 # 1. use o vetor numeross abaixo para responder as questoes seguintes.

@@ -1,4 +1,5 @@
 # Exercícios - Introdução ao R
+# Escreva a resposta logo abaixo da pergunta.
 
 # objetos -----------------------------------------------------------------
 
