@@ -1,3 +1,12 @@
+# Carregando pacotes ------------------------------------------------------
+
+library(readr)
+
+# Carregando os dados -----------------------------------------------------
+
+base_de_dados <- read_csv2("dados/voos_de_janeiro.csv")
+
+
 # Comparações lógicas ------------------------------------------------------
 
 # Valores lógicos
