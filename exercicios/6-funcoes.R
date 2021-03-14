@@ -17,7 +17,7 @@
 
 # Funções e controle de fluxo ----------------------------
 
-# 1.  O pai de Julio pediu para ele ir ao mercado. 
+# 3.  O pai de Julio pediu para ele ir ao mercado. 
 # Ele pediu para o garoto comprar feijão e, se 
 # o quilo do arroz estiver abaixo de 10 reais,
 # trazer também um quilo de arroz.
@@ -79,5 +79,5 @@ o_que_julio_comprou(12)
 # do feijão estiver abaixo de 8 reais. Caso contrário,
 # ele não deve comprar nada.
 
-# DICA: você deve insirir outro argumento (preco_kg_feijao)
+# DICA: você deve inserir outro argumento (preco_kg_feijao)
 # na função o_que_julio_comprou.
