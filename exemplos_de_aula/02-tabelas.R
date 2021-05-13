@@ -176,6 +176,14 @@ base_de_dados[["companhia_aerea"]]
 base_de_dados[[13]]
 base_de_dados[[10]]
 
+# Selecionando usando a função "select" do pacote "dplyr"
+
+# vamos instalar um pacote novo!
+# install.packages("dplyr")
+library(dplyr)
+
+select(base_de_dados, origem)
+select(base_de_dados, companhia_aerea)
 
 # A classe data frame tem uma característica especial: dimensão
 
