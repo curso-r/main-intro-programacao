@@ -1,0 +1,202 @@
+---
+title: "Introdução à programação com R"
+subtitle: "Tabelas"
+author: "<img src = 'https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5c21538a29eade7cbd2b/67e5c/img/logo/cursor1-5.png' width = '20%'>"
+date: ""
+output:
+  xaringan::moon_reader:
+    css: ["default", "default-fonts", "css/custom-intro.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+knit: pagedown::chrome_print            
+---
+
+
+```{r, child="00-preamble.Rmd"}
+
+```
+
+# Tópicos desta aula
+
+- [Pacotes](#pacotes)
+
+- [Importação de bases de dados](#importacao)
+
+- [Tabelas: Data.frames](#tabelas)
+
+---
+class: middle, center
+name: pacotes
+
+# `r blue("Pacotes")`
+
+---
+## Pacotes
+
+Um pacote no R é um conjunto de funções que visam resolver um problema em específico. O R já vem com alguns pacotes instalados. Geralmente chamamos esses pacotes de *base R*.
+
+Mas a força do R está na gigantesca variedade de pacotes desenvolvidos pela comunidade, em especial, pelos criadores do `tidyverse`.
+
+---
+## Instalando e carregando pacotes
+
+Para instalar um pacote, usamos a função `install.packages`.
+
+```{r, eval=FALSE}
+# Instalando um pacote
+install.packages("tidyverse")
+
+# Instalando vários pacotes de uma vez
+install.packages(c("tidyverse", "rmarkdown", "devtools"))
+```
+
+Para usar as funções de um pacote, precisamos carregá-lo. Fazemos isso usando a função `library()`.
+
+```{r, eval=FALSE}
+library(tidyverse)
+```
+
+---
+class:: center
+<br><br>
+
+`r blue('Instale uma vez, carregue várias vezes!')`
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/instalar_carregar.png")
+```
+
+
+class: middle, center
+name: importacao
+
+# `r blue("Importação de bases de dados")`
+
+---
+
+## Importação de bases de dados
+### O que é?
+
+Importar uma base de dados para o R significa levar a informação contida no disco rígido (HD) para a mé moria RAM.
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/import.png")
+
+library(readr)
+```
+
+
+---
+## Lendo tabelas
+
+Para ler tabelas, como arquivos `.csv`, utilizaremos funções do pacote `readr`.
+
+Para isso, utilizamos a função `read_csv()` ou `read_csv2()`. Se o arquivo estiver bem formatado, a função só precisa do caminho até o arquivo para funcionar.
+
+
+---
+<br><br>
+
+A mensagem devolvida pela função indica qual classe foi atribuída para cada coluna da base.
+
+.tiny[
+```{r, echo=FALSE}
+voos_csv <- readr::read_csv2("../dados/voos_de_janeiro.csv")
+```
+]
+
+
+---
+<br><br>
+
+- Em alguns países, como o Brasil, as vírgulas são utilizadas para separar as casas decimais dos números, inviabilizando os arquivos `.csv`.  Nesses casos, os arquivos `.csv` são na verdade separados por ponto-e-vírgula. Para ler bases separadas por ponto-e-vírgula no R, utilize a função `read_csv2()`.
+
+```{r, eval=FALSE}
+voos_csv <- readr::read_csv2("../dados/voos_de_janeiro.csv")
+```
+
+- Arquivos `.txt` podem ser lidos com a função `read_delim()`. Além do caminho até o arquivo, você também precisa indicar qual é o caractere utilizado para separar as colunas da base.  Um arquivo separado por tabulação, por exemplo, pode ser lido utilizando a o código abaixo. O código `\t` é uma forma textual de representar a tecla TAB.
+
+
+- Para ler planilhas do Excel (arquivos `.xlsx` ou `.xls`), basta utilizarmos a função `read_excel()` do pacote `readxl`. 
+
+
+
+---
+class: middle, center
+name: tabelas
+
+# `r blue("Tabelas no R: Data frames")`
+
+
+---
+## Tabelas no r: Data frames
+
+O objeto mais importante para o cientista de dados é, claro, a base de dados. No R, uma base de dados é representa por objetos chamados de *data frames*. Eles são equivalentes a uma tabela do SQL ou uma planilha do Excel.
+
+A principal característica de um *data frame* é possuir linhas e colunas:
+
+```{r, eval=FALSE}
+mtcars
+```
+
+.tiny[
+```{r, echo=FALSE}
+head(mtcars, 10)
+```
+]
+
+---
+<br><br>
+
+O `mtcars` é um *data frame* nativo do R que contém informações sobre diversos modelos de carros. Ele possui 32 linhas e 11 colunas (só estamos vendo as primeiras 10 linhas no slide anterior). 
+
+A primeira "coluna" representa apenas o *nome* das linhas (modelo do carro), não é uma coluna da base. Repare que ela não possui um nome, como as outras. Essa estrutura de nome de linha é própria de *data frames* no R. Se exportássemos essa base para o Excel, por exemplo, essa coluna não apareceria.
+
+Se você quiser saber mais sobre o `mtcars`, veja a documentação dele rodando `?mtcars` no **Console**.
+
+Para entender melhor sobre *data frames*, precisamos estudar um pouco sobre classes, vetores e testes lógicos.
+
+---
+## Classes
+
+A classe de um objeto é muito importante dentro do R. É a partir dela que as funções e operadores conseguem saber exatamente o que fazer com um objeto.
+
+Por exemplo, podemos somar dois números, mas não conseguimos somar duas letras (texto):
+
+```{r, error=TRUE}
+1 + 1
+"a" + "b"
+```
+
+O operador `+` verifica que `"a"` e `"b"` não são números (ou que a classe deles não é numérica) e devolve uma mensagem de erro informando isso.
+
+---
+## Texto
+
+Observe que para criar texto no R, colocamos os caracteres entre aspas. As aspas servem para diferenciar *nomes* (objetos, funções, pacotes) de *textos* (letras e palavras). Os textos são muito comuns em variáveis categóricas.
+
+```{r}
+a <- 10
+# O objeto `a`, sem aspas
+a
+# A letra (texto) `a`, com aspas
+"a"
+```
+
+---
+## A classe de um objeto
+
+Para saber a classe de um objeto, basta rodarmos `class(nome-do-objeto)`.
+
+```{r}
+x <- 1
+class(x)
+y <- "a"
+class(y)
+class(mtcars)
+```
+
