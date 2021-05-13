@@ -1,6 +1,6 @@
 ---
 title: "Introdução à programação com R"
-subtitle: "Material complementar da Aula 3"
+subtitle: "Controle de fluxo"
 author: "<img src = 'https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5c21538a29eade7cbd2b/67e5c/img/logo/cursor1-5.png' width = '20%'>"
 date: ""
 output:
