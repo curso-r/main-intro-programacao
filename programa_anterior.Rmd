@@ -152,19 +152,18 @@ Aula 05:
   - 03-tabelas.R
   - 04-exemplo-script.R
   
-- Aula 4: (previsto)
+- Aula 4: 
   - 05-operadores_controle-de-fluxo_NA.R
-  - 06-exemplo-script.R
-  - 07-loops.R (começar)
-  
 
-- Aula 5: (previsto)
-  - 07-loops.R (finalizar)
+- Aula 5
+  - 05-operadores_controle-de-fluxo_NA.R (terminou)
+  - 06-exemplo-script.R
+  - 07-loops.R
   - 08-exemplo-script.R
   - 09-loops-2.R 
   - 10-exemplo-script.R
-  
-- Aula 6:  (previsto)
+
+- Aula 6: 
   - 11-funcoes.R
   - 12-exemplo-script-funcao.R
   - 13-pipe.R
