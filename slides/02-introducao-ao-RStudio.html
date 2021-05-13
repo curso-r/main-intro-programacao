@@ -4,15 +4,15 @@
     <title>Introdução à programação com R</title>
     <meta charset="utf-8" />
     <meta name="author" content="" />
-    <script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.8/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
-    <link href="libs/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.css" rel="stylesheet" />
-    <script src="libs/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.js"></script>
+    <link href="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
-    <link href="libs/tile-view-0.2.4/tile-view.css" rel="stylesheet" />
-    <script src="libs/tile-view-0.2.4/tile-view.js"></script>
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
     <link rel="stylesheet" href="css/custom-intro.css" type="text/css" />
   </head>
   <body>
@@ -20,7 +20,7 @@
 class: center, middle, inverse, title-slide
 
 # Introdução à programação com R
-## Material complementar da Aula 3
+## Introdução ao RStudio
 ### <img src = 'https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5c21538a29eade7cbd2b/67e5c/img/logo/cursor1-5.png' width = '20%'>
 
 ---
@@ -35,205 +35,112 @@ class: center, middle, inverse, title-slide
 
 
 
-# Tópicos desta aula
-
-- [Controle de fluxo: if](#if)
-
-- [Loops de repetição: for](#for)
-
-- [Loops de repetição: while](#while)
 
 
----
-name: if
+name: rstudio
 class: middle, center
 
-# <span style="color:#6495ed; font-weight: bold;">Controle de fluxo: if</span>
+# <span style="color:#6495ed; font-weight: bold;">RStudio</span>
 
 
 ---
-## Controle de fluxo: if
+## Painéis
 
-- O `if` permite executar um código condicional. 
+Ao abrir o RStudio, você verá 4 quadrantes:
 
-- Em português, pense no `if` como a palavra "SE", e o `else` como "SE NÃO":
-
-
-```r
-if (condicao) { # Se a condição for verdadeira
- # o código que é executado quando a condição é verdadeira (TRUE)
-} else { # Se não
- # o código que é executado quando a condição é falsa (FALSE)
-}
-```
+&lt;img src="img/rstudio-editor.png" width="500" height="400" style="display: block; margin: auto;" /&gt;
 
 ---
+&lt;br&gt;&lt;br&gt;
 
-- Podemos usar o `else if` para colocar outras condições:
+Esses quadrantes representam o **editor**, o **console**, o **environment** e o **output**. Eles vêm nesta ordem, mas você pode organizá-los da forma que preferir acessando a seção *Pane Layout* da opção `Global options...` no menu `Tools`.
 
+O editor e o console são os dois principais painéis do RStudio. Passaremos a maior parte do tempo neles:
 
+- **Editor/Scripts**: é onde escrevemos nossos códigos. Repare que o RStudio colore algumas palavras e símbolos para facilitar a leitura do código.
 
-```r
-if (condicao) {
- # faz coisa tal
-} else if (outra_condicao) {
- # faz outra coisa 
-} else {
- # o que fazer com o que não foi verdadeiro em todas as condições anteriores
-}
-```
-
+- **Console**: é onde rodamos o código e recebemos as saídas. <span style="color:#6495ed; font-weight: bold;">O R vive aqui!</span>
 
 ---
-## Controle de fluxo em funções
+&lt;br&gt;&lt;br&gt;
 
-- Podemos utilizar o `if` dentro de funções. É muito útil!
+Os demais painéis são auxiliares. O objetivo deles é facilitar pequenas tarefas que fazem parte tanto da programação quanto da análise de dados:
 
-- Exemplo: Queremos criar uma função que recebe como argumento a sigla de um estado brasileiro (ex. "RJ") e retorna um texto mostrando em região do país este estado está localizado.
+- **Environment**: painel com todos os objetos criados na sessão.
 
-- A primeira coisa que devemos fazer é pensar no `if`:
+- **History**: painel com um histórico dos comandos rodados.
 
----
+- **Files**: mostra os arquivos no diretório de trabalho. É possível navegar entre diretórios.
 
+- **Plots**: painel onde os gráficos serão apresentados.
 
-```r
-sigla_estado &lt;- "SP" # Criamos um exemplo pra testar
+- **Packages**: apresenta todos os pacotes instalados e carregados.
 
-if (sigla_estado %in% c("DF")) {
-  print("Distrito Federal")
-  
-} else if (sigla_estado %in% c("AC", "AP", "AM", "RR", "PA", "RO", "TO")) {
-  print("Norte")
-  
-} else if (sigla_estado %in% c("AL",  "BA", "CE", "MA",  "PB",
-                               "PE", "PI", "SE" , "RN")) {
-  print("Nordeste")
-  
-} else if (sigla_estado %in% c("GO", "MT", "MS")) {
-  print("Centro-Oeste")
+- **Help**: janela onde a documentação das funções serão apresentadas.
 
-} else if (sigla_estado %in% c("ES", "MG", "RJ", "SP")) {
-  print("Sudeste")
-  
-  
-} else if (sigla_estado %in% c("PR", "RS", "SC")) {
-  print("Sul")
-  
-} else {
-  print("Não encontrei este estado... Você pode conferir se digitou corretamente?")
-}
-```
-
-```
-## [1] "Sudeste"
-```
+- **Viewer**: painel onde relatórios e dashboards serão apresentados.
 
 ---
-Agora que o if está pronto e funcionando, podemos adicioná-lo dentro de uma função (e o argumento é a sigla_estado):
+## Atalhos
 
+Conhecer os atalhos do teclado ajuda bastante quando estamos programando no RStudio. Veja os principais:
 
-```r
-qual_regiao &lt;- function(sigla_estado) {
-  if (sigla_estado %in% c("DF")) {
-    print("Distrito Federal")
-    
-  } else if (sigla_estado %in% c("AC", "AP", "AM", "RR", "PA", "RO", "TO")) {
-    print("Norte")
-    
-  } else if (sigla_estado %in% c("AL",  "BA", "CE", "MA",  "PB",
-                                 "PE", "PI", "SE" , "RN")) {
-    print("Nordeste")
-    
-  } else if (sigla_estado %in% c("GO", "MT", "MS")) {
-    print("Centro-Oeste")
-    
-  } else if (sigla_estado %in% c("ES", "MG", "RJ", "SP")) {
-    print("Sudeste")
-    
-    
-  } else if (sigla_estado %in% c("PR", "RS", "SC")) {
-    print("Sul")
-    
-  } else {
-    print("Não encontrei este estado...Você pode conferir se digitou corretamente?")
-  }
-  
-}
-```
+- **CTRL+ENTER**: avalia/roda a linha selecionada no script. O atalho mais utilizado.
+
+- **ALT+-**: cria no script um sinal de atribuição (&lt;-). Você o usará o tempo todo.
+
+- **CTRL+SHIFT+M**: (%&gt;%) operador *pipe*. Guarde esse atalho, será bastante utilizado.
+
+- **CTRL+1**: altera cursor para o script.
+
+- **CTRL+2**: altera cursor para o console.
+
+- **ALT+SHIFT+K**: janela com todos os atalhos disponíveis.
+
+No MacOS, substitua **CTRL** por **command** e **ALT** por **option**.
 
 ---
+## Projetos
 
-- Agora que a função foi criada, podemos utilizá-la e testar o resultado com diferentes estados:
+Uma funcionalidade muito importante do RStudio é a possibilidade de criar **projetos**. 
 
+Um projeto é uma pasta no seu computador. Nessa pasta, estarão todos os arquivos que você usurá ou criará na sua análise. 
 
+A principal razão de utilizarmos projetos é **organização**. Com eles, fica muito mais fácil importar bases de dados para dentro do R, criar análises reprodutíveis e compartilhar o nosso trabalho.
 
-```r
-qual_regiao("CE")
-```
+&lt;br&gt;
 
-```
-## [1] "Nordeste"
-```
-
-```r
-qual_regiao("AM")
-```
-
-```
-## [1] "Norte"
-```
-
-```r
-qual_regiao("GO")
-```
-
-```
-## [1] "Centro-Oeste"
-```
-
-```r
-qual_regiao("PR")
-```
-
-```
-## [1] "Sul"
-```
-
-```r
-qual_regiao("NA")
-```
-
-```
-## [1] "Não encontrei este estado...Você pode conferir se digitou corretamente?"
-```
+<span style="color:#6495ed; font-weight: bold;">Habitue-se desde a cedo a criar um projeto para cada nova análise que for fazer.</span>
 
 ---
-name: for
-class: middle, center
+&lt;br&gt;&lt;br&gt;
 
-# <span style="color:#6495ed; font-weight: bold;">Loops de repetição: for</span>
+Para criar um projeto, clique em `New Project...` no Menu `File`. Na caixa de diálogo que aparecerá, clique em `New Directory` para criar o projeto em uma nova pasta ou `Existing Directory` para criar em uma pasta existente. 
 
+Se você tiver o `Git` instalado, você também pode usar projetos para conectar com repositórios do Github e outras plataformas de desenvolvimento. Para isso, basta clicar em `Version Control`.
 
----
-## Loops de repetição: for
+Se você não sabe o que é Git, Github ou versionamento, veja [este material](https://beatrizmilz.github.io/slidesR/git_rstudio.html) da [Beatriz Milz](https://twitter.com/BeaMilz), ou [este post](https://www.curso-r.com/blog/2019-07-23-zen-do-r-4/) no nosso blog.
 
-...
-
-&lt;!-- Escrever! --&gt;
+Criando um projeto, o RStudio criará na pasta escolhida um arquivo `nome-do-projeto.Rproj`. Você pode usar esse arquivo para iniciar o RStudio já com o respectivo projeto aberto.
 
 ---
-name: while
-class: middle, center
+## RStudio com um projeto aberto
 
-# <span style="color:#6495ed; font-weight: bold;">Loops de repetição: while</span>
-
+&lt;img src="img/exemplo-projeto-aberto.png" style="display: block; margin: auto;" /&gt;
 
 ---
-## Loops de repetição: while
+## Navegando entre projetos
 
-...
+&lt;img src="img/exemplo-lista-projetos.png" style="display: block; margin: auto;" /&gt;
 
-&lt;!-- Escrever! --&gt;
+---
+## Cheatsheets
+
+O RStudio tem à disposição algumas *folhas de cola*, as **cheatsheets**. Elas trazem um resumão de como utilizar diversos pacotes e até o próprio RStudio. 
+Para acessá-las, basta clicar no menu `Help` e então em `Cheatsheets`, ou no [site da RStudio](https://rstudio.com/resources/cheatsheets/).
+
+&lt;img src="img/cheatsheet-rstudio-pt.png" width="500" style="display: block; margin: auto;" /&gt;
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
