@@ -1,7 +1,8 @@
 # Caminhos até arquivos --------------------------------------------------
 
 # Uma habilidade importante quando estamos analisando dados é 
-# conseguir escrever os caminhos corretos até os arquivos.
+# conseguir escrever os caminhos corretos até os arquivos, como por exemplo as 
+# nossas bases de dados.
 
 # Por exemplo: caso a gente não consiga informar para o R o caminho
 # da planilha que queremos ler, não conseguiremos abrir estes dados 
@@ -10,7 +11,6 @@
 # O primeiro conceito importante neste momento é o de diretórios de trabalho.
 # O diretório de trabalho, ou working directory, é a pasta no computador 
 # onde o R está considerando como nosso "local de trabalho" atual.
-
 
 # Quando trabalhamos com projetos no R (R projects), o diretório de trabalho
 # é a pasta onde o arquivo .Rproj atual está salvo. Essa é uma grande vantagem
@@ -36,10 +36,6 @@ getwd()
 
 # (cara(o) professora(o), favor lembrar de falar da dica 
 # de navegação entre as aspas e a tecla tab)
-
-
-
-
 
 # Lidando com arquivos
 

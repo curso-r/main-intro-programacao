@@ -25,7 +25,7 @@ meta <- 5 # meta é a média de até 5 min de atraso
 
 for(arquivo in arquivos){
   
-  dados <- readr::read_csv2(arquivo,
+  dados <- read_csv2(arquivo,
                             col_types = "dddddddddcdcccddddT",
                             col_names = TRUE,
                             locale = locale(decimal_mark = ",", grouping_mark = "."))

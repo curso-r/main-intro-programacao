@@ -172,6 +172,8 @@ for (variavel in aonde_vou_iterar) {
 
 # podemos usar o for para facilitar a nossa vida!
 
+library(readr)
+
 arquivos_de_dados <- c("dados/voos_de_janeiro.csv", "dados/voos_de_fevereiro.csv", "dados/voos_de_marco.csv")
 # vetor de textos com o caminhos dos nossos arquivos
 
@@ -180,7 +182,7 @@ for(arquivo in arquivos_de_dados){
 # VARIAVEL aqui levou esse nome "arquivo"
 # VETOR_TOTAL aqui levou o nome "arquivos_de_dados"
   
-  dados <- readr::read_csv2(arquivo)
+  dados <- read_csv2(arquivo)
   
   maior_atraso <- min(dados$atraso_saida)
   
@@ -242,12 +244,11 @@ for(arquivo in arquivos_de_dados){
 
 # 2. o máximo está dando NAs
 
-
 arquivos <- c("dados/voos_de_janeiro.csv", "dados/voos_de_fevereiro.csv", "dados/voos_de_marco.csv")
 
 for(arquivo in arquivos){
   
-  dados <- readr::read_csv2(arquivo)
+  dados <- read_csv2(arquivo)
   
   maior_atraso <- max(dados$atraso_saida, na.rm = TRUE)
   

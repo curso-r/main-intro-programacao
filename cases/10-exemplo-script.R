@@ -29,7 +29,7 @@ for(arquivo in arquivos){
   
   print(paste0("Estou lendo o arquivo que está no caminho ", arquivo))
   
-  dados <- readr::read_csv2(arquivo,
+  dados <- read_csv2(arquivo,
                             col_types = "dddddddddcdcccddddT",
                             col_names = TRUE,
                             locale = locale(decimal_mark = ",", grouping_mark = "."))

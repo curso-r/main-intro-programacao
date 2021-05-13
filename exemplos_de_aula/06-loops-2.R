@@ -31,7 +31,9 @@ for(i in 1:30){
 
 # Mas primeiro... Como a gente descobre quais são os aeroportos disponiveis?
 
-base_de_dados <- readr::read_csv2("dados/voos_de_janeiro.csv")
+library(readr)
+
+base_de_dados <- read_csv2("dados/voos_de_janeiro.csv")
 
 # assim nós conseguimos os aeroportos de origem voo por voo, isso é, de cada linha da base e em sequência
 base_de_dados$origem
