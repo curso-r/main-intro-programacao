@@ -255,5 +255,73 @@ class(x)
 y <- "a"
 class(y)
 class(mtcars)
+class(mtcars$mpg) # Classe de uma coluna de uma base
+```
+
+
+---
+
+## Selecionando colunas
+
+- Existe mais de uma forma!
+
+  - Utilizando o `$`:
+
+Dica: após escrever o `nome_do_dataframe$`, aperte `tab` para que o RStudio faça sugestões de colunas da base.
+
+```{r}
+mtcars$hp # selecionando uma coluna
+```
+
+---
+
+## Selecionando colunas
+
+- Existe mais de uma forma!
+
+  - Utilizando o `[]`:
+
+```{r}
+mtcars["hp"] # selecionando uma coluna
+
+mtcars[c("hp", "drat")] # para selecior duas colunas (ou mais), utilize o c()
+```
+
+---
+
+## Selecionando colunas
+
+- Existe mais de uma forma!
+
+  - Usando o pacote `{dplyr}` e a função `select()`:
+  
+```{r message=FALSE, warning=FALSE}
+library(dplyr)
+
+select(mtcars, hp) # selecionando uma coluna
+```
+
+---
+
+## Selecionando colunas
+
+- Existe mais de uma forma!
+
+  - Usando o pacote `{dplyr}` e a função `select()`:
+  
+```{r message=FALSE, warning=FALSE}
+select(mtcars, hp, drat) #selecionando duas colunas (ou mais)
+```
+
+---
+
+## Selecionando colunas
+
+- Existe mais de uma forma!
+
+  - Usando o pacote `{dplyr}` e a função `select()`:
+  
+```{r message=FALSE, warning=FALSE}
+select(mtcars, -hp) # selecionando todas as colunas, exceto alguma
 ```
 
