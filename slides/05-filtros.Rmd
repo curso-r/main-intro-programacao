@@ -274,37 +274,44 @@ Nos dois exemplos, exibimos apenas as 5 primeiras linhas do *data frame*.
 
 - Existe mais de uma forma!
 
-  - Usando o pacote `{dplyr}` e a função `select()`:
+- Também podemos selecionar colunas usando o pacote `{dplyr}` e a função `select()` [leia mais aqui](https://livro.curso-r.com/7-2-dplyr.html#selecionando-colunas). Para isso, primeiramente precisaremos carregar o pacote `dplyr`, com a função `library()`, para que a função `select()` fique disponível:
+  
+```{r}
+library(dplyr)
+# estrutura:
+# select(nome_do_dataset, quais_colunas_para_selecionar)
+```
+
+---
+
+## Selecionando colunas (cont.)
+
+### Selecionando **uma** coluna
 
 .tiny[
 ```{r message=FALSE, warning=FALSE}
-library(dplyr)
-
-select(mtcars, hp) # selecionando uma coluna
+select(mtcars, hp) 
 ```
 ]
 
 ---
 
-## Selecionando colunas
+## Selecionando colunas (cont.)
 
-- Existe mais de uma forma!
-
-  - Usando o pacote `{dplyr}` e a função `select()`:
+### Selecionando **duas** colunas (ou mais)
 
 .tiny[ 
 ```{r message=FALSE, warning=FALSE}
-select(mtcars, hp, drat) #selecionando duas colunas (ou mais)
+select(mtcars, hp, drat) 
 ```
 ]
 
 ---
 
-## Selecionando colunas
+## Selecionando colunas (cont.)
 
-- Existe mais de uma forma!
 
-  - Usando o pacote `{dplyr}` e a função `select()`:
+### Selecionando todas as colunas, exceto alguma
  
 .tiny[ 
 ```{r message=FALSE, warning=FALSE}
@@ -319,15 +326,15 @@ Também podemos usar o *subsetting* para filtrar linhas:
 
 .tiny[
 ```{r}
-mtcars$cyl == 4
-mtcars[mtcars$cyl == 4, ]
+mtcars$cyl == 6
+mtcars[mtcars$cyl == 6, ]
 ```
 ]
 
 ---
 <br><br>
 
-O código `mtcars$cyl == 4` nos diz em quais linhas estão os carros com 4 cilindros. Quando usamos o vetor de `TRUE` e `FALSE` resultante dentro do *subsetting* das linhas em `mtcars[mtcars$cyl == 4, ]`, o R nos devolve todos as colunas dos carros com 4 cilindros.  A regra é a seguinte: linha com `TRUE` é retornada, linha com `FALSE` não.
+O código `mtcars$cyl == 6` nos diz em quais linhas estão os carros com 4 cilindros. Quando usamos o vetor de `TRUE` e `FALSE` resultante dentro do *subsetting* das linhas em `mtcars[mtcars$cyl == 6, ]`, o R nos devolve todos as colunas dos carros com 4 cilindros.  A regra é a seguinte: linha com `TRUE` é retornada, linha com `FALSE` não.
 
 Outro exemplo:
 
@@ -341,24 +348,36 @@ mtcars[mtcars$mpg > 20, ]
 
 ## Filtrando linhas com o pacote {dplyr}
 
-- Os mesmos exemplos anteriores, adaptados para funcionar com a função `filter()`
+
+
+- Também podemos selecionar colunas usando o pacote `{dplyr}` e a função `filter()` [leia mais aqui](https://livro.curso-r.com/7-2-dplyr.html#filtrando-linhas). Para isso, primeiramente precisaremos carregar o pacote `dplyr`, com a função `library()`, para que a função `filter()` fique disponível:
+  
+```{r}
+library(dplyr)
+# estrutura:
+# filter(nome_do_dataset, condicoes_para_filtrar)
+```
+
+- A seguir, apresentamos os mesmos exemplos anteriores, adaptados para funcionar com a função `filter()`.
+
+---
+
+## Filtrando linhas com o pacote {dplyr} (cont.)
 
 .tiny[
 ```{r}
-library(dplyr)
 
 # em R base: 
-# mtcars[mtcars$cyl == 4, ]
+# mtcars[mtcars$cyl == 6, ]
 # com dplyr
-filter(mtcars, cyl == 4)
+filter(mtcars, cyl == 6)
 ```
 ]
 
 ---
 
-## Filtrando linhas com o pacote {dplyr}
+## Filtrando linhas com o pacote {dplyr}  (cont.)
 
-- Os mesmos exemplos anteriores, adaptados para funcionar com a função `filter()`
 
 ```{r}
 # em R base: 
@@ -370,46 +389,45 @@ filter(mtcars, mpg > 20)
 
 ---
 
-## Filtrando linhas com o pacote {dplyr}
+## Filtrando linhas com o pacote {dplyr}  (cont.)
 
-- É possível combinar filtros:
+- É possível combinar filtros.  A vírgula neste contexto funciona como o `&`: 
 
 ```{r}
-# Combinando filtros! A vírgula neste contexto funciona como o & 
+# Combinando filtros!
 # exemplo abaixo: filtrar carros que tenham 4 cilindros, e mais de 20 mpg
-filter(mtcars, cyl == 4, mpg > 20)
+filter(mtcars, cyl == 6, mpg > 20)
 ```
 
 ---
+ 
+## Filtrando linhas com o pacote {dplyr}  (cont.)
 
-## Filtrando linhas com o pacote {dplyr}
 
-
-- Usando o que aprendemos com os operadores:
+- Podemos combinar filtros usando o que aprendemos com os operadores: podemos também usar o OU `|`
 
 ```{r}
-# Combinando filtros! Podemos também usar o OU: |
+# Combinando filtros! 
 # exemplo abaixo: filtrar carros que tenham 4 cilindros OU mais de 20 mpg
-filter(mtcars, cyl == 4 | mpg > 20)
+filter(mtcars, cyl == 6 | mpg > 20)
 ```
 
 ---
 
-## Filtrando linhas com o pacote {dplyr}
+## Filtrando linhas com o pacote {dplyr}  (cont.)
 
-- Usando o que aprendemos com os operadores:
-
+- Podemos combinar filtros usando o que aprendemos com os operadores: podemos também usar o NOT `!`
 .tiny[
 ```{r}
 # Podemos também usar o NOT: !
 # exemplo abaixo: filtrar carros que NÃO tenham 4 cilindros
-filter(mtcars, ! cyl == 4)
+filter(mtcars, ! cyl == 6)
 ```
 ]
 
 ---
 
-## Filtrando linhas com o pacote {dplyr}
+## Filtrando linhas com o pacote {dplyr}  (cont.)
 
 - Podemos usar também o operador `%in%`:
 
