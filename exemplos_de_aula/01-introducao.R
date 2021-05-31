@@ -101,7 +101,10 @@ obj2 <- "masculino"
 
 # note que na aba "variáveis" os formatos das variáveis "obj" e "a" são diferentes
 
+# Valores lógicos/booleanos (verdadeiro ou falso)
 
+class(TRUE) 
+class(FALSE)
 
 # Vetores -----------------------------------------------------------------
 
