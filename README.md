@@ -13,6 +13,7 @@ abaixo**.
 
 | Turma             | Material                                             | Github                                                |
 |:------------------|:-----------------------------------------------------|:------------------------------------------------------|
+| Junho de 2021     | <https://curso-r.github.io/202106-intro-programacao> | <https://github.com/curso-r/202106-intro-programacao> |
 | Fevereiro de 2021 | <https://curso-r.github.io/202102-intro-programacao> | <https://github.com/curso-r/202102-intro-programacao> |
 
 # Ementa
