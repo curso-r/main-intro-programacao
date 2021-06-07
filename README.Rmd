@@ -43,3 +43,11 @@ knitr::kable(CursoRutils:::listar_turmas_recentes("intro-programacao"))
   - Usando e instalando pacotes
   - Estruturação de projetos
   - Boas práticas de programação em R
+  
+  
+```{r eval=FALSE, include=FALSE}
+# para criar o zip do curso:
+# CursoRutils::empacotar_material_alunos("material.txt")
+```
+  
+  
