@@ -91,6 +91,64 @@ class: middle, center
 ---
 ## Loops de repetição: for
 
-...
+- O `for` permite repetir uma mesma ação várias vezes, dentro de um determinado escopo.
 
-<!-- Escrever! -->
+- O escopo é o contexto em que a ação será repetida
+
+- A ação deverá ser aplicada utilizando o elemento do escopo 
+
+- Observe a estrutura estrutura:
+
+```{r eval=FALSE, include=TRUE}
+for(ESCOPO) {
+  # Ação que será feita
+}
+```
+
+O escopo também tem uma estrutura importante: 
+
+```{r eval=FALSE, include=TRUE}
+for(posicao_do_elemento in conjunto_de_valores) {
+  # Ação que será feita
+}
+```
+
+---
+
+Exemplo 1: Queremos iterar entre os números 1 até 10, e "printando" o número no console.
+
+```{r}
+for(numero in 1:10){
+  print(numero)
+}
+```
+
+---
+
+Exemplo 2: Queremos calcular a média de atraso de saída para cada dia dos voos de janeiro.
+
+```{r, message=FALSE, warning=FALSE}
+# Carregando os dados -----------------------------------------------------
+library(readr)
+library(dplyr)
+base_de_dados <- read_csv2("../dados/voos_de_janeiro.csv")
+
+#---- repeticao!
+for(dia_filtrar in 1:31) {
+  base_filtrada <- filter(base_de_dados, dia == dia_filtrar)
+  media_atraso_saida <- round(
+    mean(base_filtrada$atraso_saida, na.rm = TRUE)
+    , 1)
+  
+  print(
+    paste0(
+      "A média de atraso de saída no dia ",
+      dia_filtrar,
+      " é de ",
+      media_atraso_saida,
+      
+      " minutos."
+    )
+  )
+}
+```
