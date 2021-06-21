@@ -147,7 +147,8 @@ for(aeroporto in lista_de_aeroportos){
 # para cada um dos destinos e guarde em um vetor "vetor_de_atraso_de_chegada".
 
 # Você pode conseguir uma lista desses destinos fazendo:
-# lista_de_aeroportos_de_destino <- unique(base_de_dados$destino
+# lista_de_aeroportos_de_destino <- unique(base_de_dados$destino)
+
 
 # 2. Calcule o mínimo o médio e o máximo desse vetor. Quais são os destinos em que os voos chegam com maior atraso?
 # Para te ajudar a visualizar o resultado você poderia organizar os resultados em um data.frame.

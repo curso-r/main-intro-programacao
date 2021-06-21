@@ -1,5 +1,11 @@
 # INTRODUÇÃO AO R
 
+# o hashtag (#) serve para escrever comentários
+# os comentários não são executados pelo R
+
+# selecione um bloco de código e clique
+# ctrl + shift + c para comentar tudo o que está selecionado
+
 # Rodando códigos (o R como calculadora) ----------------------------------
 
 # ATALHO para rodar o código: CTRL + ENTER  
@@ -99,7 +105,8 @@ a <- 10
 obj <- "a"
 obj2 <- "masculino"
 
-# note que na aba "variáveis" os formatos das variáveis "obj" e "a" são diferentes
+# note que na aba "variáveis" os formatos das variáveis "obj" e "a" 
+# são diferentes
 
 # Valores lógicos/booleanos (verdadeiro ou falso)
 
@@ -201,7 +208,8 @@ vetor1 + vetor2
 # a. Guarde em um objeto uma sequência de números que comece
 # em 0 e termine em 5.
 
-# b. Use subsetting para fazer o R devolver o primeiro número dessa sequência.
+# b. Use subsetting para fazer o R devolver o primeiro número dessa 
+# sequência.
 # Em seguida, faça o R devolver o último número da sequência.
 
 # c. Multiplique todos os valores do vetor por -1. Guarde o resultado em
@@ -224,6 +232,12 @@ help(seq)
 # Argumentos são sempre separados por vírgulas
 
 c(1, 3, 5)
+
+# Pensando em uma receita do bolo:
+# os ingredientes são os argumentos
+# a receita é o código que a função executa (usando os argumentos/ingredientes)
+# e o bolo é o resultado da função
+
 
 # A ordem é importante se você não nomear os argumentos
 
@@ -282,21 +296,24 @@ resultado_colado <- paste0(1, "a")
 
 # Recapitulando
 
-# 1 - O R propriamente dito é aquela caixinha onde se lê "Console" escrito em cima
+# 1 - O R propriamente dito é aquela caixinha onde se lê "Console" escrito
+# em cima
 
-# 2 - Você pode escrever comeando direto nele, do lado daquele sinal de maior: ">"
+# 2 - Você pode escrever comeando direto nele, do lado daquele sinal de 
+# maior: ">"
 
-# É muito comum você fazer contas direto no Console, por exemplo. Nós aprendemos que 
-# praticamente todas as operações aritméticas estão no R
+# É muito comum você fazer contas direto no Console, por exemplo.
+# Nós aprendemos quepraticamente todas as operações aritméticas estão no R
 
 # 5+1, 4+2, 1-1, 1/1 etc
 
-# 3 - O jeito mais comum de programar em R é escrevendo vários comandos em um arquivo de texto e
-# executando todos eles de uma vez, manualmente ou talvez até programando o computador para fazer isso.
+# 3 - O jeito mais comum de programar em R é escrevendo vários comandos em
+# um arquivo de texto e executando todos eles de uma vez, manualmente ou 
+# talvez até programando o computador para fazer isso.
 
 # 4 - Aprendemos vários exemplos de comandos que podemos usar no R:
 
-# - criar variáveis
+# - criar objetos
 # - criar vetores
 # - recortar pedaços de vetores
 # - várias funções para transformar vetores numéricos

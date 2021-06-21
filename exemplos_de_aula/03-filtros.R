@@ -75,7 +75,7 @@ numeros[numeros == 15]
 # 1. Escreva um código que devolva apenas os valores maiores
 # ou iguais a 10 do vetor abaixo:
 
-vetor <- c(4, 8, 15, 16, 23, 42)
+vetor <- c(4, 8, 10, 15, 16, 23, 42)
 
 
 
@@ -137,8 +137,9 @@ base_de_dados[base_de_dados$origem == "EWR" & base_de_dados$tempo_voo > 100,]
 
 # Exercícios --------------------------------------------------------------
 
-# 1. Usando a base de voos, escreva um código que devolva apenas os voos 
-# que aconteceram no dia 15/01/2013:
+# 1. Usando a base de voos, e considerando que as colunas "dia", "mes" e "ano"
+# compõem a data de saída do voo, escreva um código que devolva apenas os voos 
+# que saíram no dia 15/01/2013:
 
 
 # 2. Usando a base de voos, escreva um código que devolva apenas os voos 
@@ -150,9 +151,9 @@ base_de_dados[base_de_dados$origem == "EWR" & base_de_dados$tempo_voo > 100,]
 # e salve em um objeto chamado voos_jfk_atlanta:
 
 # 4. Usando a base de voos, escreva um código que devolva apenas os voos 
-# que aconteceram nos dias 15/01/2013 ou 16/01/2013:
+# que saíram nos dias 15/01/2013 ou 16/01/2013:
 
-# filter
+# filter -----------------
 
 # Existe um outro jeito de fazer esse tipo de filtro
 
