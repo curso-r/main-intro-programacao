@@ -4,7 +4,7 @@
     <title>Introdução à programação com R</title>
     <meta charset="utf-8" />
     <meta name="author" content="" />
-    <script src="libs/header-attrs-2.8/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.9.1/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
@@ -20,7 +20,7 @@
 class: center, middle, inverse, title-slide
 
 # Introdução à programação com R
-## Controle de fluxo
+## Controle de fluxo e repetições
 ### <img src = 'https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5c21538a29eade7cbd2b/67e5c/img/logo/cursor1-5.png' width = '20%'>
 
 ---
@@ -40,9 +40,6 @@ class: center, middle, inverse, title-slide
 - [Controle de fluxo: if](#if)
 
 - [Loops de repetição: for](#for)
-
-- [Loops de repetição: while](#while)
-
 
 ---
 name: if
@@ -83,129 +80,29 @@ if (condicao) {
 }
 ```
 
-
 ---
-## Controle de fluxo em funções
 
-- Podemos utilizar o `if` dentro de funções. É muito útil!
+Exemplo:
 
-- Exemplo: Queremos criar uma função que recebe como argumento a sigla de um estado brasileiro (ex. "RJ") e retorna um texto mostrando em região do país este estado está localizado.
-
-- A primeira coisa que devemos fazer é pensar no `if`:
-
----
+Imagine que você trabalhe em uma loja e a meta de vendas é de 500 reais, e você quer saber se falta muito para você atingir a meta! O objeto `valor_vendido` representa o quanto você já vendeu, e o  controle de fluxo (com `if`) pode nos ajudar a descobrir se a meta foi atingida.
 
 
 ```r
-sigla_estado &lt;- "SP" # Criamos um exemplo pra testar
+valor_vendido &lt;- 300
 
-if (sigla_estado %in% c("DF")) {
-  print("Distrito Federal")
-  
-} else if (sigla_estado %in% c("AC", "AP", "AM", "RR", "PA", "RO", "TO")) {
-  print("Norte")
-  
-} else if (sigla_estado %in% c("AL",  "BA", "CE", "MA",  "PB",
-                               "PE", "PI", "SE" , "RN")) {
-  print("Nordeste")
-  
-} else if (sigla_estado %in% c("GO", "MT", "MS")) {
-  print("Centro-Oeste")
-
-} else if (sigla_estado %in% c("ES", "MG", "RJ", "SP")) {
-  print("Sudeste")
-  
-  
-} else if (sigla_estado %in% c("PR", "RS", "SC")) {
-  print("Sul")
-  
+if (valor_vendido  &gt;= 500) {
+ print("Parabéns, você atingiu a meta!")
+} else if (valor_vendido &gt;= 400 &amp; valor_vendido &lt; 500) {
+ print("Olha só, você está perto de atingir a meta! Falta pouco!")
 } else {
-  print("Não encontrei este estado... Você pode conferir se digitou corretamente?")
+ print("Hum.. ainda falta bastante para a meta ser atingida.")
 }
 ```
 
 ```
-## [1] "Sudeste"
+## [1] "Hum.. ainda falta bastante para a meta ser atingida."
 ```
 
----
-Agora que o if está pronto e funcionando, podemos adicioná-lo dentro de uma função (e o argumento é a sigla_estado):
-
-
-```r
-qual_regiao &lt;- function(sigla_estado) {
-  if (sigla_estado %in% c("DF")) {
-    print("Distrito Federal")
-    
-  } else if (sigla_estado %in% c("AC", "AP", "AM", "RR", "PA", "RO", "TO")) {
-    print("Norte")
-    
-  } else if (sigla_estado %in% c("AL",  "BA", "CE", "MA",  "PB",
-                                 "PE", "PI", "SE" , "RN")) {
-    print("Nordeste")
-    
-  } else if (sigla_estado %in% c("GO", "MT", "MS")) {
-    print("Centro-Oeste")
-    
-  } else if (sigla_estado %in% c("ES", "MG", "RJ", "SP")) {
-    print("Sudeste")
-    
-    
-  } else if (sigla_estado %in% c("PR", "RS", "SC")) {
-    print("Sul")
-    
-  } else {
-    print("Não encontrei este estado...Você pode conferir se digitou corretamente?")
-  }
-  
-}
-```
-
----
-
-- Agora que a função foi criada, podemos utilizá-la e testar o resultado com diferentes estados:
-
-
-
-```r
-qual_regiao("CE")
-```
-
-```
-## [1] "Nordeste"
-```
-
-```r
-qual_regiao("AM")
-```
-
-```
-## [1] "Norte"
-```
-
-```r
-qual_regiao("GO")
-```
-
-```
-## [1] "Centro-Oeste"
-```
-
-```r
-qual_regiao("PR")
-```
-
-```
-## [1] "Sul"
-```
-
-```r
-qual_regiao("NA")
-```
-
-```
-## [1] "Não encontrei este estado...Você pode conferir se digitou corretamente?"
-```
 
 ---
 name: for
@@ -216,20 +113,6 @@ class: middle, center
 
 ---
 ## Loops de repetição: for
-
-...
-
-&lt;!-- Escrever! --&gt;
-
----
-name: while
-class: middle, center
-
-# <span style="color:#6495ed; font-weight: bold;">Loops de repetição: while</span>
-
-
----
-## Loops de repetição: while
 
 ...
 
