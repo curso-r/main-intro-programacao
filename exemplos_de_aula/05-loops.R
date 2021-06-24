@@ -184,7 +184,7 @@ for(arquivo in arquivos_de_dados){
   
   dados <- read_csv2(arquivo)
   
-  maior_atraso <- min(dados$atraso_saida)
+  maior_atraso <- max(dados$atraso_saida)
   
   texto_de_saida <- paste0("O maior atraso no arquivo ", arquivo, " é ", maior_atraso)
   
