@@ -82,27 +82,34 @@ help(round)
 
 # Dica: É mais fácil começar com um código que funciona e converte-lo em uma função.
 
-# Exemplo: Cálculo do IMC
+# Exemplo: Converter real em dólar
+# Imagine que queremos comprar algo e o valor está em dólar, e queremos fazer
+# uma conversão para saber o valor aproximado em reais
 # Primeiro vamos fazer um código simples, e depois transformaremos em uma função.
 
-peso <- 65
-altura <- 1.75
-imc <- peso/ (altura^2)
-imc
+valor_em_dolar <- 99
+cotacao_dolar_em_real <- 5.16 # em 6 de setembro de 2021
+# podemos consultar a taxa no site do Banco central: https://www.bcb.gov.br/
+valor_em_real <- valor_em_dolar * cotacao_dolar_em_real
+valor_em_real
 
 # Agora vamos transformar em uma função: primeiro, quais são os argumentos?
 # Ou seja, o que precisamos informar para que o cálculo seja realizado?
-# O peso e a altura! Portanto serão nossos argumentos.
-# E o que colocaremos no corpo da função? Justamente a fórmula para calcular o IMC.
+# O valor que desejamos em dolar que desejamos converter em real,
+# e a cotação do dólar em real! Portanto serão nossos argumentos.
+# E o que colocaremos no corpo da função? 
 
-
-calculo_imc <- function(peso, altura){
-  imc <- peso/ (altura^2)
-  round(imc, 2)      # podemos usar a função  round para arredondar o resultado
+converter_dolar_para_real <- function(valor_em_dolar, cotacao_dolar_em_real = 5.16){
+  valor_em_real <- valor_em_dolar * cotacao_dolar_em_real
+  valor_em_real
 }
 
-# Agora que a função está criada, podemos testar com diferentes pesos e alturas!
-calculo_imc(peso = 65, altura = 1.75)
+# Agora que a função está criada, podemos testar com diferentes valores!
+converter_dolar_para_real(799)
+
+# e qual seria o valor se o dolar estivesse com outra cotação?
+# usando a cotacao de 2016 - 02/09/2016
+converter_dolar_para_real(799, 3.24)
 
 
 # Função source ------------------------------------------------------
