@@ -13,8 +13,16 @@ output:
 knit: pagedown::chrome_print      
 ---
 
-```{r, child="00-preamble.Rmd"}
+```{r, include = FALSE}
+options(htmltools.dir.version = FALSE)
 
+link <- function(href, ...) {
+  htmltools::a(
+    href = href,
+    target = "_blank",
+    ...
+  )
+}
 ```
 
 class: middle, center
@@ -27,35 +35,78 @@ class: middle, center
 
 ## A empresa
 
-.pull-left[
-```{r, echo = FALSE}
+<br>
+
+```{r, echo = FALSE, out.width="50%", fig.align="center"}
 knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/295643c6243701ae6a9bac3fb8ad467ff0ce3c84/d1785/img/logo/cursor1-41.png")
 ```
 
 <br>
 <br>
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, out.width="40%", fig.align="center"}
 knitr::include_graphics("img/logo_r6.png")
 ```
 
+---
+## Filosofia de código aberto!
+
+.pull-left[
+```{r, echo = FALSE}
+htmltools::h3("Livros")
+
+link(
+  href = "https://livro.curso-r.com/",
+  htmltools::img(src = "img/hex-livro.png", width = "100px")
+)
+
+link(
+  href = "https://curso-r.github.io/zen-do-r/index.html",
+  htmltools::img(
+    src = "img/zen-do-r.png",
+    width = "100px",
+    style = "margin-left: 20px;"
+  )
+)
+```
+
+<br>
+
+```{r, echo = FALSE}
+htmltools::h3("Lives")
+link(
+  href = "https://www.youtube.com/c/CursoR6",
+  htmltools::img(src = "img/youtube.png", width = "200px")
+)
+```
 ]
 
 .pull-right[
 ```{r, echo = FALSE}
-knitr::include_graphics("img/produtos.png")
+htmltools::h3("Material dos cursos")
+link(
+  href = "https://github.com/curso-r",
+  htmltools::img(src = "img/github.png", width = "230px")
+)
+```
+
+<br>
+
+```{r, echo = FALSE}
+htmltools::h3("Blog")
+link(
+  href = "https://blog.curso-r.com/",
+  htmltools::img(src = "img/blog.png", width = "400px")
+)
 ```
 ]
 
+<br>
+
+.center[
 ### [www.curso-r.com](https://www.curso-r.com)
+]
 
----
-
-## Linha do tempo
-
-<center>
-<img src="img/linha_do_tempo.png" width = 45%></img>
-</center>
 
 ---
 
@@ -128,6 +179,8 @@ class: middle, center
 - Após as aulas:
     - Exercícios para casa disponibilizados na aba "Atividades" do Google Classroom. A entrega não é obrigatória, mas corrigiremos e daremos feedback sobre todas as entregas feitas na plataforma.
     - A emissão de certificados ocorrerá mediante a entrega da atividade final do curso, que será apresentada na última aula do curso.
+    - Haverá monitoria para esclarecimento de dúvidas sempre 30 minutos antes do início das aulas.
+    - Usaremos os últimos minutos de cada aula para tirar dúvidas do conteúdo apresentado. Não haverá plantão de dúvidas pós aula.
 
 ---
 ## Orientações sobre a ferramenta de videochamadas
@@ -270,7 +323,7 @@ Disponível online e gratuitamente em [Inglês](https://r4ds.had.co.nz/) e [Espa
 ---
 class: middle, center
 
-# `r blue("Introdução")`
+# Introdução
 
 ### As vantagens de analisar dados usando linguagens de programação
 
@@ -353,7 +406,7 @@ class: middle, center
 ---
 class: middle, center
 
-# `r blue("Introdução")`
+# Introdução
 ### Por que o R?
 
 ---
@@ -371,7 +424,7 @@ class: middle, center
 ---
 class: middle, center
 
-# `r blue("Introdução")`
+# Introdução
 ### Guia da(o) mochileira(o)
 
 ---
