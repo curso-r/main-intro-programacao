@@ -6,121 +6,6 @@ library(readr)
 
 base_de_dados <- read_csv2("dados/voos_de_janeiro.csv")
 
-# Comparações lógicas ------------------------------------------------------
-
-# Valores lógicos
-
-class(TRUE)
-class(FALSE)
-
-# TRUE e FALSE são nomes reservados 
-
-TRUE <- 1
-
-x <- 1
-
-# Testes com resultado verdadeiro
-x == 1
-"a" == "a"
-
-# Testes com resultado falso
-x == 2
-"a" == "b"
-
-# Maior
-x > 3
-x > 0
-
-# Maior ou igual
-x > 1
-x >= 1
-
-# Menor
-x < 3
-x < 0
-
-# Menor ou igual
-x < 1
-x <= 1
-
-# Diferente
-x != 1
-x != 2
-
-x %in% c(1, 2, 3)
-"a" %in% c("b", "c")
-
-## Operadores lógicos também podem ser usados com vetores
-
-numeros <- c(4, 8, 15, 16, 23, 42)
-
-# vetor de lógicos que compara os elementos de "numeros", um por um, com o número 20
-numeros < 20
-
-# vetor de lógicos que compara os elementos de "numeros", um por um, com o número 23
-numeros == 23
-
-## Comparações lógicas serão a base dos filtros!
-
-numeros <- c(4, 8, 15, 16, 23, 42)
-
-# seleciona apenas o primeiro elemento do vetor "numeros"
-numeros[c(TRUE, FALSE, FALSE, FALSE, FALSE, FALSE)]
-
-# seleciona apenas aqueles elementos do vetor "numeros" que forem iguais a 15
-numeros[numeros == 15]
-
-# Exercícios --------------------------------------------------------------
-
-# 1. Escreva um código que devolva apenas os valores maiores
-# ou iguais a 10 do vetor abaixo:
-
-vetor <- c(4, 8, 10, 15, 16, 23, 42)
-
-
-
-# Operadores lógicos ----------
-
-## & - E - Para ser verdadeiro, os dois lados 
-# precisam resultar em TRUE
-
-x <- 5
-x >= 3 & x <=7
-
-
-y <- 2
-y >= 3 & y <= 7
-
-## | - OU - Para ser verdadeiro, apenas um dos 
-# lados precisa ser verdadeiro
-
-y <- 2
-y >= 3 | y <=7
-
-y <- 1
-y >= 3 | y == 0
-
-## O mesmo acontece com vetores
-
-x_vetor <- c(89, 36, 96, 10, 99, 39)
-y_vetor <- c(53, 30, 15, 54, 34, 60)
-
-x_vetor > 50 | y_vetor < 10
-x_vetor <= 50 & y_vetor > 10
-
-## ! - Negação - É o "contrário"
-
-!TRUE
-
-!FALSE
-
-
-w <- 5
-(!w < 4)
-
-
-!(x_vetor > 50 | y_vetor < 10)
-
 # Filtrando linhas do data.frame  com vetores lógicos --------------
 
 base_de_dados$atraso_chegada
@@ -135,7 +20,11 @@ base_de_dados[base_de_dados$tempo_voo > 100,]
 base_de_dados[base_de_dados$origem == "EWR" | base_de_dados$tempo_voo > 100,]
 base_de_dados[base_de_dados$origem == "EWR" & base_de_dados$tempo_voo > 100,]
 
-# Exercícios --------------------------------------------------------------
+
+
+
+
+## Exercícios --------------------------------------------------------------
 
 # 1. Usando a base de voos, e considerando que as colunas "dia", "mes" e "ano"
 # compõem a data de saída do voo, escreva um código que devolva apenas os voos 
@@ -153,7 +42,7 @@ base_de_dados[base_de_dados$origem == "EWR" & base_de_dados$tempo_voo > 100,]
 # 4. Usando a base de voos, escreva um código que devolva apenas os voos 
 # que saíram nos dias 15/01/2013 ou 16/01/2013:
 
-# filter -----------------
+# filter com dplyr -----------------
 
 # Existe um outro jeito de fazer esse tipo de filtro
 
@@ -182,7 +71,7 @@ filter(base_de_dados, origem == "EWR" & tempo_voo > 100)
 # essa é uma comodidade ESPECÍFICA do filter
 filter(base_de_dados, origem == "EWR", tempo_voo > 100)
 
-# Exercícios --------------------------------------------------------------
+## Exercícios --------------------------------------------------------------
 
 avaliacao_do_cliente <- c(1, 3, 0, 10, 2, 5, 20)
 estado_de_nascimento <- c("SP", "PB", "PB", "RJ", "MT", "MT", "PA")
@@ -198,3 +87,6 @@ avaliacoes <- data.frame(avaliacao_do_cliente, estado_de_nascimento)
 # 2. Filtre as avaliações de SP ou MT.
 
 # 3. Filtre as avaliações de PB ou MT com nota inferior a 4.
+
+
+
