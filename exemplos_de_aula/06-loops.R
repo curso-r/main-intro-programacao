@@ -265,3 +265,22 @@ for(arquivo in arquivos){
 # 2. Adapte o script anterior para que ele imprima os maiores atrasos e também os voos que saíram mais adiantados.
 
 # Dica: Na nossa base de dados um valor negativo na coluna "atraso_saida" indica que o voo saiu adiantado
+
+
+
+# While ------
+# O while é outra estrutura de repetição muito comum em 
+# linguagens de programação.
+
+# Leia como: Enquanto uma condição for verdadeira, faça XYZ.
+
+# while (CONDICAO) {
+#   O QUE FARÁ
+# }
+
+# Exemplo:
+dia <- 1
+while (dia < 30) {
+  print(paste0("O mês ainda não acabou! Hoje é dia ", dia, "!"))
+  dia <- dia + 1
+}
