@@ -9,6 +9,14 @@ blue <- function(x) {
 }
 
 options(width = 85)
+
+link <- function(href, ...) {
+  htmltools::a(
+    href = href,
+    target = "_blank",
+    ...
+  )
+}
 ```
 
 ```{r include=FALSE}

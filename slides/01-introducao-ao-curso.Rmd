@@ -29,9 +29,8 @@ class: middle, center
 
 # Sobre a Curso-R
 
----
 
-class: middle, center
+---
 
 ## A empresa
 
@@ -49,6 +48,7 @@ knitr::include_graphics("img/logo_r6.png")
 ```
 
 ---
+
 ## Filosofia de código aberto!
 
 .pull-left[
@@ -109,59 +109,11 @@ link(
 
 
 ---
-
 ## Nossos cursos
 
-.pull-left[
-<div class="container center">
-  <div class="card">
-    <h2>Programação em R</h2>
-    <hr style = "background-color: #3bb44a;"/>
-    <p><a href = "https://www.curso-r.com/cursos/intro-programacao/">Introdução à programação com R</a></p>
-    <p><a href = "https://www.curso-r.com/cursos/r4ds-1/">R para Ciência de dados I</a></p>
-    <p><a href = "https://www.curso-r.com/cursos/r4ds-2/">R para Ciência de dados II</a></p>
-    <p><a href = "https://www.curso-r.com/cursos/pacotes/">Pacotes</a></p>
-  </div>
-</div>
-
-<br>
-
-<div class="container center">
-  <div class="card">
-    <h2>Extração de dados</h2>
-    <hr style = "background-color: #eeba30;"/>
-    <p><a href = "https://www.curso-r.com/cursos/faxina/">Faxina de dados</a></p>
-    <p><a href = "https://www.curso-r.com/cursos/web-scraping/">Web scraping</a></p>
-
-  </div>
-</div>
-]
-
-
-.pull-right[
-<div class="container center">
-  <div class="card">
-    <h2>Modelagem</h2>
-    <hr style = "background-color: #996699;"/>
-    <p><a href = "https://www.curso-r.com/cursos/regressao-linear/">Regressão Linear</a></p>
-    <p><a href = "https://www.curso-r.com/cursos/intro-machine-learning/">Machine Learning</a></p>
-    <p><a href = "https://www.curso-r.com/cursos/xgboost/">XGBoost</a></p>
-    <p><a href = "https://www.curso-r.com/cursos/deep-learning/">Deep Learning</a></p>
-  </div>
-</div>
-
-<br>
-
-<div class="container center">
-  <div class="card">
-    <h2>Comunicação e automação</h2>
-    <hr style = "background-color: #ff6699;"/>
-    <p><a href = "https://www.curso-r.com/cursos/dashboards/">Relatórios e visualização de dados</a></p>
-    <p><a href = "https://www.curso-r.com/cursos/dashboards/">Dashboards com R</a></p>
-    <p><a href = "https://www.curso-r.com/cursos/deploy/">Deploy</a></p>
-  </div>
-</div>
-]
+```{r, echo = FALSE}
+templatesR6::criar_slide_nossos_cursos()
+```
 
 ---
 class: middle, center
@@ -169,51 +121,46 @@ class: middle, center
 # Sobre o curso
 
 ---
-## Orientações
+## Dinâmica curso
 
-- Dinâmica das aulas:
-    - Slides e código, muito código!
-    - Exercícios curtos salpicados ao longo das aulas. Vamos resolver juntos em intervalos de aproximadamente 5 minutos, com correção logo na sequência
-    - Todos os códigos executados em aula serão disponibilizados https://curso-r.github.io/202106-intro-programacao/
-    - Intervalos de 20 min iniciados por volta às 20h e 20h20
-- Após as aulas:
-    - Exercícios para casa disponibilizados na aba "Atividades" do Google Classroom. A entrega não é obrigatória, mas corrigiremos e daremos feedback sobre todas as entregas feitas na plataforma.
-    - A emissão de certificados ocorrerá mediante a entrega da atividade final do curso, que será apresentada na última aula do curso.
-    - Haverá monitoria para esclarecimento de dúvidas sempre 30 minutos antes do início das aulas.
-    - Usaremos os últimos minutos de cada aula para tirar dúvidas do conteúdo apresentado. Não haverá plantão de dúvidas pós aula.
+- As aulas serão em maior parte expositivas.
 
----
-## Orientações sobre a ferramenta de videochamadas
+- As aulas terão uma seção teórica, de exposição de conceitos, e prática, de aplicação de conceitos.
 
+- O objetivo dos exercícios é gerar dúvidas. **Com exceção do trabalho final, nenhum exercício precisa ser entregue**.
 
-- Utilizamos a ferramenta Zoom.
+- O certificado será emitido mediante uma **entrega final**, a ser especificada nas últimas aulas do curso. 
 
-- A barra inferior apresenta alguns controles importantes, como:
+- Haverá monitoria para esclarecimento de dúvidas sempre 30 minutos antes do início das aulas.
 
-```{r, echo = FALSE, fig.align='center'}
-knitr::include_graphics("img/zoom_barra.png")
-```
+- Usaremos os últimos minutos de cada aula para tirar dúvidas do conteúdo apresentado. Não haverá plantão de dúvidas pós aula.
 
-  - Áudio: ative o áudio caso queira falar algo.
-  
-  - Vídeo: opcional.
-  
-  - Bate-papo: se comunique conosco e com as pessoas da turma através do bate papo! 
-  
-  - Reações: 
-
-
-```{r, echo = FALSE, out.width='50%', fig.align='center'}
-knitr::include_graphics("img/zoom_reacoes.png")
-```
+- A gravação das aulas ficará disponível no Google Classroom por 1 ano após o final do curso.
 
 ---
+## Dinâmica das aulas
 
-## Bate-papo no Zoom
+- Mande dúvidas e comentários no chat em qualquer momento.
 
-```{r, echo = FALSE, out.width="40%", fig.align='center'}
-knitr::include_graphics("img/zoom_batepapo.png")
-```
+- Para falar, levante a mão.
+
+- Algumas dúvidas serão respondidas na hora. Outras serão respondidas mais tarde na própria aula ou em aulas futuras.
+
+- Só interrompa quem estiver falando em caso de emergência.
+
+---
+## Tire suas dúvidas
+
+- **Não fique com dúvida**.
+ 
+- Fora do horário de aula ou monitoria:
+    - envie suas perguntas gerais **sobre o curso** no Classroom.
+     
+    - envie preferencialmente suas perguntas **sobre R** no [nosso discourse](https://discourse.curso-r.com/).
+
+- Saber fazer a pergunta certa vai te ajudar bastante nos estudos de programação. [Veja aqui dicas de como fazer uma boa pergunta](https://discourse.curso-r.com/t/como-escrever-uma-boa-pergunta/542).
+
+
 ---
 ## Introdução ao R
 
@@ -266,9 +213,10 @@ knitr::include_graphics("img/zoom_batepapo.png")
 - Controles de fluxo
   - if
   - for
-  - while
-- Escrever, arquivos,
-- Vocabulários
+
+- Escrever arquivos
+
+- Criar funções básicas
 
 ---
 ## Material
@@ -425,7 +373,7 @@ class: middle, center
 class: middle, center
 
 # Introdução
-### Guia da(o) mochileira(o)
+### Guia da jornada
 
 ---
 # Pratique
@@ -474,13 +422,3 @@ Na grande maioria das vezes, você poderá resolver uma tarefa de diversas manei
 
 - Estilo: cada um pode escolher aquele com o qual se sentir mais à vontade (tipos de indentação, formatação)
 
-## Extras
-
-- Teremos monitoria duas vezes por semana, sempre meia hora antes do início das aulas (seq e qui, das 18h30 às 19h)
-
-- Além das aulas, teremos alguns conteúdos extras, tanto em texto quanto em vídeo.
-
-- A gravação das aulas ficará disponível no Google Classroom por 1 ano após o final do curso.
-
-- Mantenha o seu microfone sempre mutado. Alguns ruídos comuns podem atrapalhar o andamento da aula.
-    - Caso você queira fazer uma pergunta, sinta-se à vontade para colocá-la no chat ou use a função "levantar a mão" do Zoom.
