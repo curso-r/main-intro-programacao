@@ -169,12 +169,20 @@ base_de_dados$companhia_aerea
 # os colchetes, Exemplos: 
 
 # Selecionando a coluna pelo nome:
+# Retorna um vetor!
 base_de_dados[["origem"]]
 base_de_dados[["companhia_aerea"]]
 
 # Selecionando a coluna pela posição (indexação):
+# Retorna um vetor!
 base_de_dados[[13]]
 base_de_dados[[10]]
+
+
+# Selecionando e mantendo a classe data.frame!
+# uma coluna
+base_de_dados[, "origem"]
+
 
 # Selecionando usando a função "select" do pacote "dplyr"
 
@@ -193,7 +201,7 @@ dim(base_de_dados)
 vetor <- c(1, 2)
 dim(vetor) 
 
-# Subsetting em objetos com 2 dimensões
+# Subsetting em objetos com 2 dimensões: retorna como data.frame
 
 # Sinxtaxe: data_frame[indice_linha, indice_coluna]
 
