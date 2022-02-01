@@ -4,7 +4,7 @@
     <title>Introdução à programação com R</title>
     <meta charset="utf-8" />
     <meta name="author" content="" />
-    <script src="libs/header-attrs-2.8.3/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
@@ -124,7 +124,7 @@ A função `setwd()` pode ser utilizada para mudar o diretório de trabalho. Com
 
 Caminhos absolutos são aqueles que tem início na pasta raiz do seu computador/usuário. Por exemplo:
 
-`/Users/beatrizmilz/Documents/Curso-R/cursos/introducao-programacao/main-intro-programacao/slides`
+`/Users/beatrizmilz/Documents/Curso-R/cursos/2022/main-intro-programacao/slides`
 
 Esse é o caminho absoluto para a pasta onde esses slides foram produzidos.
 
@@ -174,33 +174,19 @@ A mensagem devolvida pela função indica qual classe foi atribuída para cada c
 .tiny[
 
 ```
-## ℹ Using '\',\'' as decimal and '\'.\'' as grouping mark. Use `read_delim()` for more control.
+## ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
 ```
 
 ```
-## 
+## Rows: 27004 Columns: 19
 ## ── Column specification ─────────────────────────────────────────────────────────────
-## cols(
-##   ano = col_double(),
-##   mes = col_double(),
-##   dia = col_double(),
-##   horario_saida = col_double(),
-##   saida_programada = col_double(),
-##   atraso_saida = col_double(),
-##   horario_chegada = col_double(),
-##   chegada_prevista = col_double(),
-##   atraso_chegada = col_double(),
-##   companhia_aerea = col_character(),
-##   voo = col_double(),
-##   cauda = col_character(),
-##   origem = col_character(),
-##   destino = col_character(),
-##   tempo_voo = col_double(),
-##   distancia = col_double(),
-##   hora = col_double(),
-##   minuto = col_double(),
-##   data_hora = col_datetime(format = "")
-## )
+## Delimiter: ";"
+## chr   (4): companhia_aerea, cauda, origem, destino
+## dbl  (14): ano, mes, dia, horario_saida, saida_programada, atraso_saida, horario_...
+## dttm  (1): data_hora
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 ]
 

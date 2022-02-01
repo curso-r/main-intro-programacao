@@ -21,65 +21,11 @@ knit: pagedown::chrome_print
 
 # Tópicos desta aula
 
-- [Controle de fluxo: if](#if)
+
 
 - [Loops de repetição: for](#for)
 
----
-name: if
-class: middle, center
-
-# `r blue("Controle de fluxo: if")`
-
-
----
-## Controle de fluxo: if
-
-- O `if` permite executar um código condicional. 
-
-- Em português, pense no `if` como a palavra "SE", e o `else` como "SE NÃO":
-
-```{r eval=FALSE, include=TRUE}
-if (condicao) { # Se a condição for verdadeira
- # o código que é executado quando a condição é verdadeira (TRUE)
-} else { # Se não
- # o código que é executado quando a condição é falsa (FALSE)
-}
-```
-
----
-
-- Podemos usar o `else if` para colocar outras condições:
-
-
-```{r eval=FALSE, include=TRUE}
-if (condicao) {
- # faz coisa tal
-} else if (outra_condicao) {
- # faz outra coisa 
-} else {
- # o que fazer com o que não foi verdadeiro em todas as condições anteriores
-}
-```
-
----
-
-Exemplo:
-
-Imagine que você trabalhe em uma loja e a meta de vendas é de 500 reais, e você quer saber se falta muito para você atingir a meta! O objeto `valor_vendido` representa o quanto você já vendeu, e o  controle de fluxo (com `if`) pode nos ajudar a descobrir se a meta foi atingida.
-
-```{r}
-valor_vendido <- 300
-
-if (valor_vendido  >= 500) {
- print("Parabéns, você atingiu a meta!")
-} else if (valor_vendido >= 400 & valor_vendido < 500) {
- print("Olha só, você está perto de atingir a meta! Falta pouco!")
-} else {
- print("Hum.. ainda falta bastante para a meta ser atingida.")
-}
-```
-
+- [Controle de fluxo: if](#if)
 
 ---
 name: for
@@ -152,3 +98,61 @@ for(dia_filtrar in 1:31) {
   )
 }
 ```
+
+
+---
+name: if
+class: middle, center
+
+# `r blue("Controle de fluxo: if")`
+
+
+---
+## Controle de fluxo: if
+
+- O `if` permite executar um código condicional. 
+
+- Em português, pense no `if` como a palavra "SE", e o `else` como "SE NÃO":
+
+```{r eval=FALSE, include=TRUE}
+if (condicao) { # Se a condição for verdadeira
+ # o código que é executado quando a condição é verdadeira (TRUE)
+} else { # Se não
+ # o código que é executado quando a condição é falsa (FALSE)
+}
+```
+
+---
+
+- Podemos usar o `else if` para colocar outras condições:
+
+
+```{r eval=FALSE, include=TRUE}
+if (condicao) {
+ # faz coisa tal
+} else if (outra_condicao) {
+ # faz outra coisa 
+} else {
+ # o que fazer com o que não foi verdadeiro em todas as condições anteriores
+}
+```
+
+---
+
+Exemplo:
+
+Imagine que você trabalhe em uma loja e a meta de vendas é de 500 reais, e você quer saber se falta muito para você atingir a meta! O objeto `valor_vendido` representa o quanto você já vendeu, e o  controle de fluxo (com `if`) pode nos ajudar a descobrir se a meta foi atingida.
+
+```{r}
+valor_vendido <- 300
+
+if (valor_vendido  >= 500) {
+ print("Parabéns, você atingiu a meta!")
+} else if (valor_vendido >= 400 & valor_vendido < 500) {
+ print("Olha só, você está perto de atingir a meta! Falta pouco!")
+} else {
+ print("Hum.. ainda falta bastante para a meta ser atingida.")
+}
+```
+
+
