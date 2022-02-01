@@ -13,9 +13,9 @@ abaixo**.
 
 | Turma             | Material                                             | Github                                                |
 |:------------------|:-----------------------------------------------------|:------------------------------------------------------|
-| Setembro de 2021  | <https://curso-r.github.io/202109-intro-programacao> | <https://github.com/curso-r/202109-intro-programacao> |
-| Junho de 2021     | <https://curso-r.github.io/202106-intro-programacao> | <https://github.com/curso-r/202106-intro-programacao> |
-| Fevereiro de 2021 | <https://curso-r.github.io/202102-intro-programacao> | <https://github.com/curso-r/202102-intro-programacao> |
+| Agosto de 2022    | <https://curso-r.github.io/202208-intro-programacao> | <https://github.com/curso-r/202208-intro-programacao> |
+| Maio de 2022      | <https://curso-r.github.io/202205-intro-programacao> | <https://github.com/curso-r/202205-intro-programacao> |
+| Fevereiro de 2022 | <https://curso-r.github.io/202202-intro-programacao> | <https://github.com/curso-r/202202-intro-programacao> |
 
 # Ementa
 
@@ -31,7 +31,7 @@ abaixo**.
     -   Utilizando e criando funções no R
     -   Operadores lógicos e aritméticos
     -   Loopings de programação: for e while
-    -   O operador pipe (%&gt;%)
+    -   O operador pipe (%>%)
 -   **Programação no dia a dia**
     -   Exemplos de scripts reais
     -   Usando e instalando pacotes
