@@ -1,4 +1,4 @@
-# Esse será o nosso segundo exemplo de script
+# Esse será o nosso terceiro exemplo de script
 
 # Ele é similar ao anterior, mas começa com a leitura de uma tabela externa e no final a saída do script se dá
 # em função das estatísticas calculadas.
