@@ -86,11 +86,11 @@ getwd()
 # que esteja salva com a extensão ".csv", 
 # você pode utilizar a função read_csv2() :
 
-base_de_dados <- read_csv2("dados/voos_de_janeiro.csv")
+dados_voos_jan <- read_csv2("dados/voos_de_janeiro.csv")
 
 ## Exercício! ------------
 # Carregue a base de dados correspondente aos voos de fevereiro, 
-# e guarde em um objeto chamado 'base_de_dados_fev'
+# e guarde em um objeto chamado 'dados_voos_fev'
 
 
 
@@ -113,43 +113,43 @@ base_de_dados <- read_csv2("dados/voos_de_janeiro.csv")
 
 # Explorando o que tem na base --------------
 
-base_de_dados # somente o nome da base: visualizar no console
+dados_voos_jan # somente o nome da base: visualizar no console
 
-View(base_de_dados) # a função View() abre uma nova aba onde 
+View(dados_voos_jan) # a função View() abre uma nova aba onde 
 # é possível ver a base. Cuidado com o View() com bases muito
 # grandes, pois sua sessão do RStudio pode ficar lenta!
 
 
 # Retorna o número de colunas 
-ncol(base_de_dados)
+ncol(dados_voos_jan)
 
 # Retorna o número de linhas
-nrow(base_de_dados)
+nrow(dados_voos_jan)
 
 # Retorna o número de colunas e linhas (as dimensões do data.frame!)
-dim(base_de_dados)
+dim(dados_voos_jan)
 
 
 # Primeiras 6 linhas de uma tabela
-head(base_de_dados)
+head(dados_voos_jan)
 
 # Últimas 6 linhas de uma tabela
-tail(base_de_dados)
+tail(dados_voos_jan)
 
 # Retorna algumas informações sobre a base
 
-summary(base_de_dados)
+summary(dados_voos_jan)
 
-str(base_de_dados)
+str(dados_voos_jan)
 
 ## Exercícios! ------------
 # Use as funções que apresentamos agora para descobrir:
 
 # a) Quantos voos a base que carregamos referente à fevereiro
-# (base_de_dados_fev) apresenta? (Dica: cada voo é apresentado em uma linha)
+# (dados_voos_fev) apresenta? (Dica: cada voo é apresentado em uma linha)
 
 
-# b) Qual é a dimensão do data.frame base_de_dados_fev? E o que significa?
+# b) Qual é a dimensão do data.frame dados_voos_fev? E o que significa?
 
 # Operadores de seleção de data.frames -------
 
@@ -157,9 +157,9 @@ str(base_de_dados)
 
 # Usa o nome da coluna, e a retorna como um vetor!
 
-base_de_dados$origem
+dados_voos_jan$origem
 
-base_de_dados$companhia_aerea
+dados_voos_jan$companhia_aerea
 
 # Dica: use o tab do teclado para usar a funcionalidade de autocompletar.
 
@@ -170,18 +170,18 @@ base_de_dados$companhia_aerea
 
 # Selecionando a coluna pelo nome:
 # Retorna um vetor!
-base_de_dados[["origem"]]
-base_de_dados[["companhia_aerea"]]
+dados_voos_jan[["origem"]]
+dados_voos_jan[["companhia_aerea"]]
 
 # Selecionando a coluna pela posição (indexação):
 # Retorna um vetor!
-base_de_dados[[13]]
-base_de_dados[[10]]
+dados_voos_jan[[13]]
+dados_voos_jan[[10]]
 
 
 # Selecionando e mantendo a classe data.frame!
 # uma coluna
-base_de_dados[, "origem"]
+dados_voos_jan[, "origem"]
 
 
 # Selecionando usando a função "select" do pacote "dplyr"
@@ -190,12 +190,12 @@ base_de_dados[, "origem"]
 # install.packages("dplyr")
 library(dplyr)
 
-select(base_de_dados, origem)
-select(base_de_dados, companhia_aerea)
+select(dados_voos_jan, origem)
+select(dados_voos_jan, companhia_aerea)
 
 # A classe data frame tem uma característica especial: dimensão
 
-dim(base_de_dados)
+dim(dados_voos_jan)
 
 # vetores não tem dimensão!
 vetor <- c(1, 2)
@@ -206,19 +206,19 @@ dim(vetor)
 # Sinxtaxe: data_frame[indice_linha, indice_coluna]
 
 # Seleciona a linha 1 e a coluna 2
-base_de_dados[1, 2] 
+dados_voos_jan[1, 2] 
 
 # Seleciona a linha 1 e TODAS as colunas
-base_de_dados[1, ] 
+dados_voos_jan[1, ] 
 
 # Seleciona TODAS as linhas e apenas a coluna 2
-base_de_dados[ , 2] 
+dados_voos_jan[ , 2] 
 
 
 # Selecionando colunas
 
-base_de_dados[, c(13, 10)]
-base_de_dados[, c("origem", "companhia_aerea")]
+dados_voos_jan[, c(13, 10)]
+dados_voos_jan[, c("origem", "companhia_aerea")]
 
 
 
@@ -233,40 +233,40 @@ base_de_dados[, c("origem", "companhia_aerea")]
 # Dataframes e funções ------------
 
 # Qual é a soma ....?
-sum(base_de_dados$distancia)
+sum(dados_voos_jan$distancia)
 
 # Menor valor encontrado: o menor número encontrado na coluna
-min(base_de_dados$distancia)
+min(dados_voos_jan$distancia)
 
 # Maior valor encontrado: o maior número encontrado na coluna
-max(base_de_dados$distancia)
+max(dados_voos_jan$distancia)
 
 
 # Média 
-mean(base_de_dados$distancia)
+mean(dados_voos_jan$distancia)
 
 # Mediana 
-median(base_de_dados$distancia)
+median(dados_voos_jan$distancia)
 
 # Variância
-var(base_de_dados$distancia)
+var(dados_voos_jan$distancia)
 
 # Desvio padrão
-sd(base_de_dados$distancia)
+sd(dados_voos_jan$distancia)
 
 
 # Datas no R ------------
 
 # Datas e horas tem uma classe diferente no R, específica para isso!
 
-class(base_de_dados$data_hora)
+class(dados_voos_jan$data_hora)
 
-base_de_dados$data_hora
+dados_voos_jan$data_hora
 
 # função para transformar em data: neste caso, perderemos
 # a informação sobre a hora
 
-as.Date(base_de_dados$data_hora)
+as.Date(dados_voos_jan$data_hora)
 
 
 # também podemos converter um texto em formato data!
