@@ -1,0 +1,181 @@
+---
+title: "Curso: Introdução à programação com R"
+subtitle: "Turma de Fevereiro de 2022"
+date: "`r templatesR6:::formatar_ultima_atualizacao()`"
+encoding: "UTF-8"
+output:
+  pagedown::html_paged:
+    toc: true
+    self_contained: true
+    css: 
+      - css/fonts.css
+      - css/custom.css
+      - css/custom-page.css
+      - default
+#knit: pagedown::chrome_print
+params: 
+  turma: "202202-intro-programacao"
+  tamanho_sala: 15
+  url_sheet: "https://docs.google.com/spreadsheets/d/1_tke8x7HXEdCOMco_bCnM_exo0CP8ecfclWSX2sSthk/edit?resourcekey#gid=152478475"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, out.width = "100%")
+
+library(magrittr)
+
+# pacotes necessários
+# devtools::install_github("curso-r/templatesR6")
+# devtools::install_github("rundel/learnrhash", force = TRUE)
+```
+
+```{r}
+
+tabela_raw <- googlesheets4::read_sheet(params$url_sheet)
+
+tabela <- tabela_raw %>%
+  janitor::clean_names() %>%
+  dplyr::rename("email" = 2,
+                "nome" = 3,
+                "hash" = 4,
+                "dificuldades_conteudo" = 5,
+                "dificuldades_tecnicas" = 6) %>%
+  dplyr::filter(!stringr::str_detect(email, "@curso-r.com")) %>% 
+  dplyr::mutate(hash = stringr::str_remove(hash, "^NA_"))
+
+ hash_extraido <- tabela |> 
+     dplyr::mutate(
+      hash = lapply(hash, learnrhash::decode_obj),
+      hash = lapply(hash, learnrhash:::fix_empty_state_obj)
+    ) |>    
+    tidyr::unnest_longer(hash) %>%
+    tidyr::unnest_wider(hash) 
+
+ 
+respostas_exercicios <- hash_extraido  %>%
+    dplyr::filter(type == "exercise")
+
+respostas_questoes <- hash_extraido  %>%
+    dplyr::filter(type == "question")
+
+
+```
+
+```{r}
+ hash_extraido %>%
+  dplyr::count(label) %>%
+  dplyr::mutate(
+    tamanho_sala = params$tamanho_sala,
+    porcentagem = round(n / tamanho_sala * 100, 1)
+  ) %>%
+  ggplot2::ggplot() +
+  ggplot2::geom_col(ggplot2::aes(x = label, y = porcentagem),
+                    fill = "lightblue",
+                    alpha = .8) +
+  ggplot2::coord_flip() +
+  ggplot2::ylim(0, 100) +
+  ggplot2::theme_minimal(14) +
+  ggplot2::labs(x = "Tarefa", y = "Porcentagem de pessoas que responderam %")
+```
+
+
+```{r}
+# tabela %>% 
+#   dplyr::mutate(data = as.Date(lubridate::floor_date(carimbo_de_data_hora, "day")) ) %>% 
+#   dplyr::count(id_tarefa, data) %>% 
+#   ggplot2::ggplot() +
+#   ggplot2::geom_col(ggplot2::aes(x = data, y = n), fill = "lightblue", alpha = .8) +
+#   ggplot2::theme_minimal(14) +
+#   ggplot2::labs(
+#     x = "Data", 
+#     y = "Quantidade de respostas",
+#     title = "Quantidade de respostas na tarefa"
+#   ) +
+#   ggplot2::facet_wrap(~ id_tarefa, ncol = 2)
+```
+
+
+```{r results="asis"}
+# for (i in 1:nrow(tarefas)) {
+#   tarefa <- tarefas %>% dplyr::slice(i)
+#   cat(
+#     "##",
+#     as.character(tarefa$numero),
+#     " - ",
+#     as.character(tarefa$nome),
+#     "{.unnumbered} \n\n"
+#   )
+#   df <- tabela %>% dplyr::filter(id_tarefa == tarefa$id)
+#   
+#   n_respondentes <- df %>% dplyr::count(id_tarefa) %>% dplyr::pull(n)
+#   
+#   cat("### Questões de múltipla escolha{.unnumbered} \n\n")
+#   
+#   respostas_questoes <-
+#     learnrhash::extract_questions(df, "hash")
+#   
+# 
+#   colar_questoes <- function(id) {
+#     questao <- respostas_questoes %>%
+#       dplyr::filter(question_id == id)
+#     
+#     print(
+#       glue::glue(
+#         "**ID da questão:** {unique(questao$question_id)} \n"
+# # **Questão:** {unique(questao$question_text)} \n"
+#       )
+#     )
+#     
+#     
+#     questao %>%
+#       dplyr::group_by(answer) %>%
+#       dplyr::count() %>%
+#       knitr::kable(col.names = c("Opção de resposta", "N. de escolhas")) %>%
+#       print()
+#   }
+#   
+#   
+#   id_questoes <- unique(respostas_questoes$question_id)
+#   
+#   purrr::walk(.x = id_questoes, .f = colar_questoes)
+#   
+#   cat("### Exercícios {.unnumbered} \n\n")
+#   
+#   # extrair resposta para exercicios
+#   respostas_exercicios <-
+#     learnrhash::extract_exercises(df, "hash") %>%
+#     dplyr::filter(!endsWith(exercise_id, "-codigo"))
+#   
+#   
+#   # porcentagem de questoes corretas
+#   
+#   qnt_respostas <- respostas_exercicios %>%
+#     dplyr::filter(!stringr::str_detect(exercise_id, "-exemplo")) %>% 
+#     dplyr::group_by(exercise_id) %>%
+#     dplyr::summarise(
+#       numero_respostas = dplyr::n(),
+#       numero_respondentes = n_respondentes,
+#       numero_respostas_corretas = sum(correct, na.rm = TRUE)
+#     ) %>%
+#     dplyr::ungroup() %>%
+#     dplyr::mutate(
+#       porcentagem_respondido = round(numero_respostas / numero_respondentes * 100, 1),
+#       porcentagem_corretas = round((numero_respostas_corretas / numero_respostas) * 100, 1)
+#     )
+#   
+#   
+#  tabela_exercicios <- qnt_respostas %>%
+#    dplyr::select(exercise_id, porcentagem_respondido, porcentagem_corretas) %>%
+#     knitr::kable(
+#       col.names = c(
+#         "Id do exercício",
+#         "% de respostas",
+#         "Dentre os exercícios respondidos, % de acerto"
+#       )
+#     )
+#  
+#  print(tabela_exercicios)
+#   
+# }
+```
+
