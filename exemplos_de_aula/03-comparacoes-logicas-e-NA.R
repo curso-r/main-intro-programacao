@@ -94,11 +94,11 @@ y >= 3 | y == 0
 
 ## O mesmo acontece com vetores
 
-x_vetor <- c(89, 36, 96, 10, 99, 39)
-y_vetor <- c(53, 30, 15, 54, 34, 60)
+idade <- c(33, 19, 55, 66, 33, 23)
+sexo <- c("M", "F", "M", "F", "F", "M")
 
-x_vetor > 50 | y_vetor < 10
-x_vetor <= 50 & y_vetor > 10
+idade > 35 | sexo == "F"
+idade < 40 & sexo == "M"
 
 ## ! - Negação - É o "contrário"
 
@@ -106,13 +106,16 @@ x_vetor <= 50 & y_vetor > 10
 
 !FALSE
 
+estados <- c("AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", 
+             "MG", "MS", "MT", "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", 
+             "RR", "RS", "SC", "SE", "SP", "TO")
 
-w <- 5
-(!w < 4)
+# pegar todos estados, menos do sul
 
+estados %in% c("PR", "SC", "RS")
+estados[estados %in% c("PR", "SC", "RS")]
 
-!(x_vetor > 50 | y_vetor < 10)
-
+estados[!estados %in% c("PR", "SC", "RS")]
 
 # Valores especiais -------------------------------------------------------
 

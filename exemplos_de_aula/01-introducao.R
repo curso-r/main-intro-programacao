@@ -40,6 +40,13 @@ soma
 # ATALHO para a <- : ALT - (alt menos)
 # Mesmo atalho no Mac: Option - (Option menos)
 
+# salvar saída versus apenas executar
+33 / 11
+resultado <- 33 / 11
+
+# atualizar um objeto
+resultado <- resultado * 5
+
 # O R difencia minúscula de maiúscula!
 
 a <- 5
@@ -47,13 +54,6 @@ A <- 42
 
 a
 A
-
-# salvar saída versus apenas executar
-33 / 11
-resultado <- 33 / 11
-
-# atualizar um objeto
-resultado <- resultado * 5
 
 # Os nomes devem começar com uma letra.
 # Podem conter letras, números, _ e .
@@ -152,7 +152,7 @@ vetor[c(1, 2, 4)]
 
 vetor[5]
 
-# Você também pode excluir elementos de um vetor
+# Você também pode selecionar elementos de um vetor por exclusão
 
 vetor[-1]
 vetor[-c(2, 3)]
@@ -224,8 +224,8 @@ vetor1 + vetor2
 
 # Onde descobrir mais sobre uma função
 
-?seq
-help(seq)
+?sort
+help(sort)
 
 # Argumentos
 

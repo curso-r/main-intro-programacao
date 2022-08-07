@@ -1,56 +1,82 @@
-# Esse é o nosso quinto script
+# Esse será o nosso quinto exemplo de script
 
-# Ele é uma sequência de passos que começa com a criação de um vetor de nomes de arquivos
+# Ele é uma sequência de passos que começa com a criação de um vetor de dados e depois
 
-# 1. Lê os dados que estão em cada arquivo indicado no vetor.
-# 2. Empilha todos esses dados verticalmente
-# 3. Salva a planilha final
+# 1. Calcula uma série de estatísticas desse vetor
+# 2. Imprime essas estatísticas em texto para que você possa colar isso em outro lugar
+# como um relatório, uma apresentação ou outro tipo de documento.
 
 
 # Carregando pacotes ------------------------------------------------------
 
 library(readr)
 
-# vamos instalar um pacote novo!
-# install.packages("dplyr")
-library(dplyr)
+# Carregando os dados -----------------------------------------------------
 
-# Lista de arquivos -------------------------------------------------------
-
-arquivos <- c("dados/voos_de_janeiro.csv", "dados/voos_de_fevereiro.csv", "dados/voos_de_marco.csv",
-              "dados/voos_de_abril.csv", "dados/voos_de_maio.csv", "dados/voos_de_junho.csv")
+base_de_dados <- read_csv2("dados/voos_de_janeiro.csv")
 
 
-# Resultados - Loop -------------------------------------------------------
+# Criando a função -----------------------------------------
 
-base_de_dados_completa <- data.frame()
+calcula_estatisticas_descritivas <- function(df, coluna, meta = 5){
 
-for(arquivo in arquivos){
   
-  print(paste0("Estou lendo o arquivo que está no caminho ", arquivo))
-  
-  dados <- read_csv2(arquivo,
-                            col_types = "dddddddddcdcccddddT",
-                            col_names = TRUE,
-                            locale = locale(decimal_mark = ",", grouping_mark = "."))
-  
-  print(paste0("Esse arquivo tem ", nrow(dados), " linhas"))
-  
-  print(paste0("Vou incluir essas ", nrow(dados),
-               " linhas em uma tabela de consolidação que tem ", nrow(base_de_dados_completa),
-               " linhas"))
+  # Filtrando os dados! ----------------------------------------------------
   
   
-  base_de_dados_completa <- bind_rows(base_de_dados_completa, dados)
+  coluna_desejada <- df[[coluna]]
   
-  print(paste0("Após incluir as linhas adicionais, minha tabela de consolidação tem ", nrow(base_de_dados_completa)))
+  # Calculando estatísticas -------------------------------------------------
+  
+  media <- round(mean(coluna_desejada, na.rm = TRUE), 2)
+  
+  desvio_padrao <- round(sd(coluna_desejada, na.rm = TRUE), 2)
+  
+  coeficiente_de_variacao <- round(100*desvio_padrao/media, 2)
+  
+  maximo <- max(coluna_desejada, na.rm = TRUE)
+  
+  minimo <- min(coluna_desejada, na.rm = TRUE)
+  
+
+  # Criando um data.frame com as estatísticas descritivas -------------------
+  
+  
+  est_descr <- data.frame(media, desvio_padrao, coeficiente_de_variacao, maximo, minimo)
+  
+  # salvar a tabela no computador -------------------------------------------
+  
+  
+  write_csv2(est_descr, file = paste0("estatisticas_descritivas_", coluna, ".csv"))
+  
+  
+  # Imprimindo os resultados finais -----------------------------------------
+  
+  mensagem_que_vou_imprimir <- paste0("A média dos dados é ", media, ", já o desvio padrão é ", desvio_padrao,
+                                      ". O coeficiente de variação, portanto, é ", coeficiente_de_variacao,
+                                      ", enquanto o máximo e o mínimo, por sua vez, são ", minimo, " e ", maximo,
+                                      ".")
+  
+  if(media > meta){
+    
+    paste(mensagem_que_vou_imprimir, " A média do atraso foi de", media,
+          "minutos, o que é maior do que a meta de", meta, "minutos.")
+    
+  } else if(media <= meta) {
+    paste(mensagem_que_vou_imprimir, " A média do atraso foi de", media,
+          "minutos, o que é menor do que a meta de", meta, "minutos.")
+  }
+  
+  
+  
+  
   
 }
 
-# para não bagunçar os nossos arquivos, vamos criar uma pasta especial só para receber uma cópia
-# da nossa tabela base_de_dados_completa
-dir.create("dados/pasta_especial")
 
-write_csv2(base_de_dados_completa, "dados/pasta_especial/base_de_dados_ate_junho.csv")
+# Exemplo de uso da função
+calcula_estatisticas_descritivas(base_de_dados, "atraso_saida")
 
-           
+
+
+
