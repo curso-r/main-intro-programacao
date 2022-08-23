@@ -14,11 +14,15 @@ for(i in 1:30){
   
   print(paste0("soma_de_1_a_30 está valendo ", soma_de_1_a_30))
   
-  soma_de_1_a_30 <- soma_de_1_a_30+i
+  soma_de_1_a_30 <- soma_de_1_a_30 + i
   
   print(paste0("Atualizei o soma_de_1_a_30, somando o valor de i, que é ", i))
   
 }
+
+soma_de_1_a_30
+
+
 
 # em cada passo:
 
@@ -47,7 +51,7 @@ lista_de_aeroportos <- unique(base_de_dados$origem)
 # vamos iniciar o nosso vetor de médias com NULL, ou seja, VAZIO:
 vetor_de_medias <- NULL
 
-for(aeroporto in lista_de_aeroportos){
+for (aeroporto in lista_de_aeroportos) {
   
   print(paste0("Calculando média dos voos que saíram de ", aeroporto))
   
@@ -68,7 +72,6 @@ for(aeroporto in lista_de_aeroportos){
   
   print(paste0("Vetor ao final do cálculo do aeroporto ", aeroporto, ":"))
   print(vetor_de_medias)
-  
 }
 
 # as médias estão chegando no "vetor_de_medias" conforme elas vão sendo
@@ -147,9 +150,40 @@ for(aeroporto in lista_de_aeroportos){
 # para cada um dos destinos e guarde em um vetor "vetor_de_atraso_de_chegada".
 
 # Você pode conseguir uma lista desses destinos fazendo:
-# lista_de_aeroportos_de_destino <- unique(base_de_dados$destino)
+lista_de_aeroportos <- unique(base_de_dados$destino)
 
+# vamos iniciar o nosso vetor de médias com NULL, ou seja, VAZIO:
+vetor_de_medias <- NULL
+
+for(aeroporto in lista_de_aeroportos){
+  
+  print(paste0("Calculando média dos voos con destino a ", aeroporto))
+  
+  print(paste0("Filtrando a base..."))
+  
+  base_filtrada <- base_de_dados[base_de_dados$destino == aeroporto, ]
+  
+  print(paste0("Calculando a média..."))
+  
+  media <- mean(base_filtrada$atraso_chegada, na.rm = TRUE)
+  
+  print(paste0("A média de atraso dos voos con destino a ", aeroporto, " é ", media))
+  
+  print(paste0("Salvando em um vetor..."))
+  
+  # aqui está o pulo do gato!
+  vetor_de_medias <- c(vetor_de_medias, media)
+  
+  print(paste0("Vetor ao final do cálculo do aeroporto ", aeroporto, ":"))
+  print(vetor_de_medias)
+  
+}
 
 # 2. Calcule o mínimo o médio e o máximo desse vetor. Quais são os destinos em que os voos chegam com maior atraso?
 # Para te ajudar a visualizar o resultado você poderia organizar os resultados em um data.frame.
 
+min(vetor_de_medias)
+mean(vetor_de_medias)
+max(vetor_de_medias)
+
+data.frame(lista_de_aeroportos, vetor_de_medias)

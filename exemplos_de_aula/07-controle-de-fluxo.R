@@ -22,7 +22,8 @@ base_de_dados <- read_csv2("dados/voos_de_janeiro.csv")
 
 x <- 1
 
-if(x == 1) {         
+
+if (x == 1) {         
   Sys.time()    
 }
 
@@ -30,7 +31,7 @@ if(x == 1) {
 
 x <- 1
 
-if(x < 0){
+if (x < 0) {
   "negativo"
 } else {
   "não negativo"
@@ -38,9 +39,13 @@ if(x < 0){
 
 # else-if: generaliza o comportamento do if
 
-if(x < 0) {
+# Se x < 0, faça algo
+# Senão, se x == 0, faça outra coisa
+# Senão faça uma terceira coisa
+
+if (x < 0) {
   "negativo"
-} else if(x == 0) {
+} else if (x == 0) {
   "neutro"
 } else {
   "positivo"
@@ -49,20 +54,20 @@ if(x < 0) {
 # Mais um exemplo de if! Contagem regressiva para o carnaval!
 
 hoje <- Sys.Date()
-carnaval <- as.Date("2021-02-16")
+carnaval <- as.Date("2023-02-16")
 
 if(hoje < carnaval){
   
   dias_para_carnaval <- as.numeric(carnaval - hoje) 
   paste("Faltam", dias_para_carnaval, "dias para o carnaval!")
   
-}  else if(hoje == carnaval){
+} else if (hoje == carnaval){
   
   paste("Hoje é carnaval!")
   
 } else {
   
-  paste("O carnaval de 2021 já passou... agora só ano que vem!")
+  paste("O carnaval de 2023 já passou... agora só ano que vem!")
   
 }
 
@@ -72,24 +77,24 @@ if(hoje < carnaval){
 # se as pessoas alunas foram aprovadas ou não na disciplina,
 # segundo a nota final.
 # Usando o if, preencha os campos com ... abaixo para que o if retorne:
-# aprovada se tiver nota maior  ou igual a 5,
+# aprovada se tiver nota maior ou igual a 5,
 # reprovada se tiver nota menor que 3,
-# e recuperação se tiver nota maior que 3 e menor que 5.
+# e recuperação se tiver nota maior ou igual que 3 e menor que 5.
 
 
-nota <- 5 
+nota <- 3
 
-if(nota >= 5){
+if (nota >= 5) {
   
-  print("....")
+  print("Aprovada")
   
-} else if(....) {
+} else if (nota < 3) {
   
   print("Reprovada")
   
 } else {
   
-  print("...")
+  print("Recuperação")
 }
 
 # 2. Continuando o exercício anterior: 

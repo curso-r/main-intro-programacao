@@ -152,9 +152,12 @@ for (variavel in aonde_vou_iterar) {
 
 # 1. Crie um script que imprima o texto "Esse aqui é o número XX", onde XX varia de 1 a 50.
 
-# 2. Crie um script que calcule o quadrado dos números de 7 a 31, calcule o quadrado desses números e imprima na tela
-# Cada ver que a nossa AÇÃO for executada (calcular o quadrado), escreva seu programa de tal maneira que
-# o computador indique o que está fazendo, conforme o esquema abaixo:
+for (xx in 1:50) {
+  print(paste("Esse aqui é o número", xx))
+}
+
+# 2. Crie um script que calcule o quadrado dos números de 7 a 31 e imprima na tela
+# Escreva seu programa de tal maneira que o computador indique o que está fazendo, conforme o esquema abaixo:
 
 # "Iniciando ação",
 # "Calculando o quadrado de XX" (essa frase será repetida para XX indo de 7 a 31)
@@ -165,6 +168,13 @@ for (variavel in aonde_vou_iterar) {
 # "Iniciando ação"
 # "Calculando o quadrado de 31"
 # "O quadrado de 31 vale 961"
+
+print("Iniciando ação")
+for (xx in 7:31) {
+  print(paste("Calculando o quadrado de", xx))
+  yy <- xx ^ 2
+  print(paste("O quadrado de", xx, "vale", yy))
+}
 
 # Mais utilidades do for
 
@@ -177,19 +187,18 @@ library(readr)
 arquivos_de_dados <- c("dados/voos_de_janeiro.csv", "dados/voos_de_fevereiro.csv", "dados/voos_de_marco.csv")
 # vetor de textos com o caminhos dos nossos arquivos
 
-for(arquivo in arquivos_de_dados){
+for (arquivo in arquivos_de_dados){
 # como ficou o nosso ESCOPO?
 # VARIAVEL aqui levou esse nome "arquivo"
 # VETOR_TOTAL aqui levou o nome "arquivos_de_dados"
   
-  dados <- read_csv2(arquivo)
+  dados <- read_csv2(arquivo, show_col_types = FALSE)
   
   maior_atraso <- max(dados$atraso_saida)
   
-  texto_de_saida <- paste0("O maior atraso no arquivo ", arquivo, " é ", maior_atraso)
+  texto_de_saida <- paste("O maior atraso no arquivo", arquivo, "é", maior_atraso)
   
   print(texto_de_saida)
-  
 }
 
 # o que não está muito legal nesse código?
@@ -255,7 +264,6 @@ for(arquivo in arquivos){
   texto_de_saida <- paste0("O maior atraso no arquivo ", arquivo, " é ", maior_atraso)
   
   print(texto_de_saida)
-  
 }
 
 # Exercícios --------------------------------------------------------------
@@ -266,7 +274,21 @@ for(arquivo in arquivos){
 
 # Dica: Na nossa base de dados um valor negativo na coluna "atraso_saida" indica que o voo saiu adiantado
 
+library(readr)
 
+arquivos_de_dados <- c("dados/voos_de_janeiro.csv", "dados/voos_de_fevereiro.csv", "dados/voos_de_marco.csv", "dados/voos_de_abril.csv", "dados/voos_de_maio.csv", "dados/voos_de_junho.csv")
+
+for(arquivo in arquivos_de_dados){
+  
+  dados <- read_csv2(arquivo, show_col_types = FALSE)
+  
+  maior_atraso <- max(dados$atraso_saida, na.rm = TRUE)
+  maior_adiantamento <- min(dados$atraso_saida, na.rm = TRUE)
+  
+  texto_de_saida <- paste0("O maior atraso no arquivo ", arquivo, " é ", maior_atraso, " e o maior adiantamento é ", maior_adiantamento)
+  
+  print(texto_de_saida)
+}
 
 # While ------
 # O while é outra estrutura de repetição muito comum em 
@@ -283,4 +305,10 @@ dia <- 1
 while (dia < 30) {
   print(paste0("O mês ainda não acabou! Hoje é dia ", dia, "!"))
   dia <- dia + 1
+}
+
+numero <- 200
+while (numero > 1) {
+  numero <- numero / 2
+  print(numero)
 }

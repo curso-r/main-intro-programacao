@@ -4,6 +4,20 @@
 # Funções são nomes que guardam um código de R. Esse código é
 # avaliado quando rodamos uma função.
 
+r1 <- 1
+r2 <- 2
+r3 <- 3
+
+2 * pi * r1
+2 * pi * r2
+2 * pi * r3
+
+f(r) = 2 * pi * r # Função na matemática! Não no R
+
+f(r1)
+f(r2)
+f(r3)
+
 # As funções permitem automatizar algumas tarefas comuns de uma forma mais 
 # poderosa e geral do que copiar e colar. 
 
@@ -21,8 +35,6 @@ c(1, 3, 5)
 # 2) argumentos que controlam os detalhes do que deve ser executado.
 
 # Geralmente os argumentos relativos aos dados são os primeiros. 
-
-
 
 # Alguns argumentos tem valores por padrão, que costumam ser os valores mais
 # comuns a serem utilizados.
@@ -58,7 +70,6 @@ round(10.55, 1) # O resultado será o que queremos! Os argumentos não foram
 round(1, 10.55) # O resultado não será o que queremos :( trocamos a ordem dos 
 # argumentos e não passamos os nomes, portanto o R entenderá que 1 é o numero 
 # que queremos arredondar, e 10.55 é o número de casas decimais para arredondar
-
 
 # Você pode descobrir quais são os argumentos de uma função lendo a documentação,
 # na aba help:
@@ -110,6 +121,71 @@ converter_dolar_para_real(799)
 # e qual seria o valor se o dolar estivesse com outra cotação?
 # usando a cotacao de 2016 - 02/09/2016
 converter_dolar_para_real(799, 3.24)
+
+
+# Mais argumentos
+converter_dolar_para_real <- function(valor_em_dolar, cotacao_dolar_em_real = 5.16, arredondar = "não") {
+  valor_em_real <- valor_em_dolar * cotacao_dolar_em_real
+  
+  if (arredondar == "sim") {
+    valor_em_real <- round(valor_em_real)
+  }
+  
+  valor_em_real
+}
+
+# Pulando um argumento com valor padrão
+converter_dolar_para_real(799)
+converter_dolar_para_real(799, 3.24)
+converter_dolar_para_real(799, 3.24, "sim")
+converter_dolar_para_real(799, arredondar = "sim")
+
+# Exercício
+# Substituir o que vem depois da seta (<-) na linha destacada por uma chamada de
+# função. Chame a sua função de 'filtrar_destinos'. O objeto é que a linha vire
+# algo do tipo 'base_filtrada <- filtrar_destinos(...)'.
+
+library(readr)
+
+base_de_dados <- read_csv2("dados/voos_de_janeiro.csv")
+
+lista_de_aeroportos <- unique(base_de_dados$destino)
+
+vetor_de_medias <- NULL
+
+for(aeroporto in lista_de_aeroportos){
+  
+  base_filtrada <- base_de_dados[base_de_dados$destino == aeroporto, ] # <- aqui
+  
+  media <- mean(base_filtrada$atraso_chegada, na.rm = TRUE)
+  
+  vetor_de_medias <- c(vetor_de_medias, media)
+}
+
+vetor_de_medias
+
+# Resposta ---
+
+filtrar_destinos <- function(base, aeroporto) {
+  base[base$destino == aeroporto, ]
+}
+
+lista_de_aeroportos <- unique(base_de_dados$destino)
+
+vetor_de_medias <- NULL
+
+for(aeroporto in lista_de_aeroportos){
+  
+  base_filtrada <- filtrar_destinos(base_de_dados, aeroporto)
+  
+  media <- mean(base_filtrada$atraso_chegada, na.rm = TRUE)
+  
+  vetor_de_medias <- c(vetor_de_medias, media)
+}
+
+vetor_de_medias
+
+
 
 
 # Função source ------------------------------------------------------
