@@ -201,6 +201,6 @@ vetor_de_medias
 # Ex:
 listar_arquivos("exemplos_de_aula/")
 
-source("exemplos_de_aula/exemplo-source.R")
+source("exemplos_de_aula/11-exemplo-source.R")
 
 listar_arquivos("exemplos_de_aula/")

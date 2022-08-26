@@ -53,4 +53,9 @@ update.packages()
 # Na barra superior: Tools > "Check for package updates" > Selecione os pacotes 
 # para atualizar > "Install updates"
 
+# Atualizando o R
 
+install.packages("installr") # Não rodar agora
+
+library("installr")
+updateR()
